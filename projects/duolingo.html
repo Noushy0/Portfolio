@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Duolingo UX/AR </title>
+  <title>Duolingo UX/AR - Ines Ghannouchi</title>
 
   <!-- SEO -->
   <meta name="description" content="Étude de cas : Refonte de Duolingo avec réalité augmentée.">
@@ -13,7 +13,7 @@
   <meta property="og:image" content="../assets/images/duolingo.png">
 
   <!-- Favicon -->
-  <link rel="icon" href="../assets/favicon.svg">
+  <link rel="icon" href="../favicon.svg">
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -21,164 +21,132 @@
   <!-- Icons -->
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js" defer></script>
 
-  <!-- Fonts -->
-  <style>
-    @import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,900,700&f[]=satoshi@400,500,700&display=swap');
-
-    :root {
-      --golden: #F9C068;
-      --teal: #76D2DB;
-      --pink: #FE9EC7;
-      --bg-dark: #0F1115;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Satoshi', sans-serif;
-      background: var(--bg-dark);
-      color: white;
-    }
-
-    h1, h2, h3 {
-      font-family: 'Cabinet Grotesk', sans-serif;
-    }
-
-    .nav-link {
-      position: relative;
-    }
-
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0%;
-      height: 2px;
-      background: var(--teal);
-      transition: 0.3s;
-    }
-
-    .nav-link:hover::after {
-      width: 100%;
-    }
-  </style>
+  <!-- GLOBAL STYLES (IMPORTANT) -->
+  <link rel="stylesheet" href="../styles.css">
 </head>
 
 <body>
+  <!-- CURSOR -->
+  <div id="cursor" class="cursor-follower"></div>
 
-<!-- NAV -->
- <header class="fixed top-0 left-0 w-full z-50 py-4 md:py-6 px-4 sm:px-6 md:px-8 lg:px-16 transition-all duration-300" style="view-transition-name: main-nav;">
+  <!-- APP ROOT (CRITICAL POUR ECO MODE) -->
+  <div id="app-root" class="min-h-screen relative overflow-x-hidden eco-mode">
+
+    <!-- NAV (IDENTIQUE HOME) -->
+    <header class="fixed top-0 left-0 w-full z-50 py-4 md:py-6 px-4 sm:px-6 md:px-8 lg:px-16 transition-all duration-300">
       <nav class="max-w-7xl mx-auto flex items-center justify-between">
-        <div id="cursor" class="cursor-follower"></div>
-        <div id="app-root" class="min-h-screen relative overflow-x-hidden eco-mode">
-        <a href="#" id="nav-logo" class="flex items-center gap-2 group">
-          <span class="text-xl md:text-2xl font-display font-bold text-white tracking-tighter logo-text">Ines Ghannouchi</span>
+
+        <a href="../index.html" class="flex items-center gap-2">
+          <span class="text-xl md:text-2xl font-bold text-white tracking-tighter">Ines Ghannouchi</span>
         </a>
 
         <div class="hidden md:flex items-center gap-10">
-           <a href="../index.html#about" id="nav-about-link" class="nav-link text-white/80 hover:text-white font-medium">Qui suis-je</a>
-          <a href="../index.html#work" id="nav-work-link" class="nav-link text-white/80 hover:text-white font-medium">Projets</a>
-          <a href="../index.html#contact" id="nav-contact-link" class="px-6 py-2 bg-white text-black rounded-full font-bold hover:bg-[#76D2DB] transition-colors">Contact</a>
+          <a href="../index.html#about" class="nav-link text-white/80 hover:text-white">Qui suis-je</a>
+          <a href="../index.html#work" class="nav-link text-white/80 hover:text-white">Projets</a>
+          <a href="../index.html#contact" class="px-6 py-2 bg-white text-black rounded-full font-bold hover:bg-[#76D2DB]">Contact</a>
         </div>
 
         <div class="flex items-center gap-3">
-          <span class="text-xs font-bold text-white/40 uppercase tracking-widest">Eco Mode</span>
-          <button type="button" onclick="toggleEcoMode()" id="eco-toggle" class="w-14 h-7 bg-white/10 rounded-full relative p-1 transition-colors border border-white/20" aria-label="Toggle eco mode">
-            <div id="toggle-dot" class="w-5 h-5 rounded-full shadow-sm"></div>
+          <span class="text-xs font-bold text-white/40 uppercase">Eco Mode</span>
+          <button onclick="toggleEcoMode()" id="eco-toggle" class="w-14 h-7 bg-white/10 rounded-full p-1 border border-white/20">
+            <div id="toggle-dot" class="w-5 h-5 rounded-full bg-white"></div>
           </button>
         </div>
+
       </nav>
-   <script src="../script.js"></script>
     </header>
-<!-- HERO -->
-<section class="h-[60vh] flex items-end relative mt-20">
-  <img src="../assets/images/duolingo.png" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
-  <div class="absolute inset-0 bg-gradient-to-t from-black/80"></div>
 
-  <div class="relative max-w-7xl mx-auto px-6 pb-16">
-    <h1 class="text-5xl md:text-7xl font-black">Duolingo UX/AR</h1>
-  </div>
-</section>
+    <!-- HERO -->
+    <section class="h-[60vh] flex items-end relative mt-20">
+      <img src="../assets/images/duolingo.png" class="absolute inset-0 w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80"></div>
 
-<!-- ABOUT -->
-<section class="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-12 gap-12">
+      <div class="relative max-w-7xl mx-auto px-6 pb-16">
+        <h1 class="text-5xl md:text-7xl font-black text-white">Duolingo UX/AR</h1>
+      </div>
+    </section>
 
-  <div class="lg:col-span-8">
-    <h2 class="text-4xl font-black mb-6">Le défi</h2>
+    <!-- ABOUT -->
+    <section class="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-12 gap-12">
 
-    <p class="text-white/70 mb-4">
-      Repenser l’apprentissage des langues avec une approche immersive grâce à la réalité augmentée.
-    </p>
+      <div class="lg:col-span-8">
+        <h2 class="text-4xl font-black mb-6 text-white">Le défi</h2>
 
-    <p class="text-white/70 mb-4">
-      L’objectif est d’ancrer l’apprentissage dans le réel en utilisant l’environnement de l’utilisateur.
-    </p>
-  </div>
+        <p class="text-white/70 mb-4">
+          Repenser l’apprentissage des langues avec une approche immersive grâce à la réalité augmentée.
+        </p>
 
-  <div class="lg:col-span-4 bg-white/5 p-6 rounded-3xl">
-    <h3 class="font-bold mb-4">Détails</h3>
-
-    <ul class="space-y-3 text-white/70">
-      <li><strong>Rôle:</strong> UX/UI Lead</li>
-      <li><strong>Durée:</strong> 3 mois</li>
-      <li><strong>Outils:</strong> Figma, AR</li>
-    </ul>
-  </div>
-
-</section>
-
-<!-- PROCESS -->
-<section class="bg-white/5 py-20">
-  <div class="max-w-7xl mx-auto px-6">
-
-    <h2 class="text-4xl font-black mb-12 text-center">Process</h2>
-
-    <div class="grid md:grid-cols-4 gap-6">
-
-      <div class="p-6 bg-[#161a21] rounded-3xl">
-        <h3 class="font-bold mb-2">Research</h3>
-        <p class="text-sm text-white/50">Analyse utilisateurs</p>
+        <p class="text-white/70 mb-4">
+          L’objectif est d’ancrer l’apprentissage dans le réel en utilisant l’environnement de l’utilisateur.
+        </p>
       </div>
 
-      <div class="p-6 bg-[#161a21] rounded-3xl">
-        <h3 class="font-bold mb-2">Design</h3>
-        <p class="text-sm text-white/50">UI + System</p>
+      <div class="lg:col-span-4 bg-white/5 p-6 rounded-3xl">
+        <h3 class="font-bold mb-4 text-white">Détails</h3>
+
+        <ul class="space-y-3 text-white/70">
+          <li><strong>Rôle:</strong> UX/UI Lead</li>
+          <li><strong>Durée:</strong> 3 mois</li>
+          <li><strong>Outils:</strong> Figma, AR</li>
+        </ul>
       </div>
 
-      <div class="p-6 bg-[#161a21] rounded-3xl">
-        <h3 class="font-bold mb-2">Prototype</h3>
-        <p class="text-sm text-white/50">Tests AR</p>
-      </div>
+    </section>
 
-      <div class="p-6 bg-[#161a21] rounded-3xl">
-        <h3 class="font-bold mb-2">Delivery</h3>
-        <p class="text-sm text-white/50">Specs dev</p>
-      </div>
+    <!-- PROCESS -->
+    <section class="bg-white/5 py-20">
+      <div class="max-w-7xl mx-auto px-6">
 
-    </div>
+        <h2 class="text-4xl font-black mb-12 text-center text-white">Process</h2>
+
+        <div class="grid md:grid-cols-4 gap-6">
+
+          <div class="p-6 bg-[#161a21] rounded-3xl text-white">
+            <h3 class="font-bold mb-2">Research</h3>
+            <p class="text-sm text-white/50">Analyse utilisateurs</p>
+          </div>
+
+          <div class="p-6 bg-[#161a21] rounded-3xl text-white">
+            <h3 class="font-bold mb-2">Design</h3>
+            <p class="text-sm text-white/50">UI + System</p>
+          </div>
+
+          <div class="p-6 bg-[#161a21] rounded-3xl text-white">
+            <h3 class="font-bold mb-2">Prototype</h3>
+            <p class="text-sm text-white/50">Tests AR</p>
+          </div>
+
+          <div class="p-6 bg-[#161a21] rounded-3xl text-white">
+            <h3 class="font-bold mb-2">Delivery</h3>
+            <p class="text-sm text-white/50">Specs dev</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="max-w-7xl mx-auto px-6 py-20">
+      <h2 class="text-4xl font-black mb-12 text-white">Visuels</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <img src="../assets/images/duolingo.png" class="rounded-3xl">
+        <img src="../assets/images/mockup.png" class="rounded-3xl">
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 text-center">
+      <a href="../index.html#work" class="bg-[#76D2DB] text-black px-8 py-4 rounded-full font-bold">
+        Voir d'autres projets
+      </a>
+    </section>
 
   </div>
-</section>
 
-<!-- GALLERY -->
-<section class="max-w-7xl mx-auto px-6 py-20">
-  <h2 class="text-4xl font-black mb-12">Visuels</h2>
-
-  <div class="grid md:grid-cols-2 gap-6">
-
-    <img src="../assets/images/duolingo.png" class="rounded-3xl" loading="lazy">
-
-    <img src="../assets/images/mockup.png" class="rounded-3xl" loading="lazy">
-
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="py-20 text-center">
-  <a href="../index.html#work" class="bg-[#76D2DB] text-black px-8 py-4 rounded-full font-bold">
-    Voir d'autres projets
-  </a>
-</section>
+  <!-- GLOBAL SCRIPT (CRUCIAL) -->
+  <script src="../script.js"></script>
 
 </body>
 </html>
