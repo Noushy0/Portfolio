@@ -210,7 +210,6 @@ button:focus-visible {
   animation: none !important;
   transition: none !important;
   scroll-behavior: auto !important;
-  cursor: default !important;
   transform: none !important;
   box-shadow: none !important;
   filter: none !important;
