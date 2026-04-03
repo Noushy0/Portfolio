@@ -236,10 +236,10 @@ button:focus-visible {
 .eco-mode .text-white\/50,
 .eco-mode .text-white\/40,
 .eco-mode .text-white\/20,
-.eco-mode h1,
-.eco-mode h2,
-.eco-mode h3,
-.eco-mode p,
+.eco-mode h1:not(.keep-white),
+.eco-mode h2:not(.keep-white),
+.eco-mode h3:not(.keep-white),
+.eco-mode p:not(.keep-white) 
 .eco-mode .logo-text,
 .eco-mode .nav-link {
   color: #2D2D2D !important;
