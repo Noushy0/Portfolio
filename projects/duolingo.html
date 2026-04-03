@@ -33,26 +33,24 @@
   <div id="app-root" class="min-h-screen relative overflow-x-hidden eco-mode">
 
     <!-- NAV (IDENTIQUE HOME) -->
-    <header class="fixed top-0 left-0 w-full z-50 py-4 md:py-6 px-4 sm:px-6 md:px-8 lg:px-16 transition-all duration-300">
+     <header class="fixed top-0 left-0 w-full z-50 py-4 md:py-6 px-4 sm:px-6 md:px-8 lg:px-16 transition-all duration-300" style="view-transition-name: main-nav;">
       <nav class="max-w-7xl mx-auto flex items-center justify-between">
-
-        <a href="../index.html" class="flex items-center gap-2">
-          <span class="text-xl md:text-2xl font-bold text-white tracking-tighter">Ines Ghannouchi</span>
+        <a href="#" id="nav-logo" class="flex items-center gap-2 group">
+          <span class="text-xl md:text-2xl font-display font-bold text-white tracking-tighter logo-text">Ines Ghannouchi</span>
         </a>
 
         <div class="hidden md:flex items-center gap-10">
-          <a href="../index.html#about" class="nav-link text-white/80 hover:text-white">Qui suis-je</a>
-          <a href="../index.html#work" class="nav-link text-white/80 hover:text-white">Projets</a>
-          <a href="../index.html#contact" class="px-6 py-2 bg-white text-black rounded-full font-bold hover:bg-[#76D2DB]">Contact</a>
+          <a href="#about" id="nav-about-link" class="nav-link text-white/80 hover:text-white font-medium">Qui suis-je</a>
+          <a href="#work" id="nav-work-link" class="nav-link text-white/80 hover:text-white font-medium">Projets</a>
+          <a href="#contact" id="nav-contact-link" class="px-6 py-2 bg-white text-black rounded-full font-bold hover:bg-[#76D2DB] transition-colors">Contact</a>
         </div>
 
         <div class="flex items-center gap-3">
-          <span class="text-xs font-bold text-white/40 uppercase">Eco Mode</span>
-          <button onclick="toggleEcoMode()" id="eco-toggle" class="w-14 h-7 bg-white/10 rounded-full p-1 border border-white/20">
-            <div id="toggle-dot" class="w-5 h-5 rounded-full bg-white"></div>
+          <span class="text-xs font-bold text-white/40 uppercase tracking-widest">Eco Mode</span>
+          <button type="button" onclick="toggleEcoMode()" id="eco-toggle" class="w-14 h-7 bg-white/10 rounded-full relative p-1 transition-colors border border-white/20" aria-label="Toggle eco mode">
+            <div id="toggle-dot" class="w-5 h-5 rounded-full shadow-sm"></div>
           </button>
         </div>
-
       </nav>
     </header>
 
