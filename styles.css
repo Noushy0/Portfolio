@@ -224,7 +224,7 @@ button:focus-visible {
   box-shadow: none !important;
   filter: none !important;
   color: inherit !important;
-/*  background-color: inherit !important;*/
+  background-color: inherit !important;
   border-color: inherit !important;
   outline: none !important;
   opacity: 1 !important;
