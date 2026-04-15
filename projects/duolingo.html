@@ -119,20 +119,36 @@
       <h2 class="text-4xl font-black mb-12 text-white">Visuels</h2>
 
       <div class="grid md:grid-cols-2 gap-6">
-        <img src="../assets/images/duo-typo.jpg" class="rounded-3xl">
-        <img src="../assets/images/duo-inspiration.jpg" class="rounded-3xl">
-        <img src="../assets/images/duo-mockup.jpg" class="rounded-3xl">
-        <img src="../assets/images/immersion.jpg" class="rounded-3xl">
+        <img loading="lazy" src="../assets/images/duo-typo.jpg" class="rounded-3xl">
+        <img loading="lazy" src="../assets/images/duo-inspiration.jpg" class="rounded-3xl">
+        <img loading="lazy" src="../assets/images/duo-mockup.jpg" class="rounded-3xl">
+        <img loading="lazy" src="../assets/images/immersion.jpg" class="rounded-3xl">
       </div>
   <section class="max-w-7xl mx-auto py-20">
       <h2 class="text-4xl font-black mb-12 mt-12 text-white">Prototypes</h2>
       <h3 class="text-3xl font-black mb-12 mt-12 text-white"> ○ Site web</h2>
     <div class="flex flex-col items-center justify-center">
-      <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/0t1myBVE78V8e1gGEeGVtj/ui--m2?node-id=186-4951&viewport=-8031%2C-541%2C0.3&scaling=contain&content-scaling=fixed&starting-point-node-id=186%3A4951&page-id=49%3A275&embed-host=share" allowfullscreen></iframe>
+      <div class="relative group rounded-3xl overflow-hidden shadow-2xl w-full max-w-[800px] aspect-video">
+        <img loading="lazy" src="../assets/images/duo-mockup.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Web Prototype Thumbnail">
+        <div class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-90 group-hover:opacity-100 transition-opacity">
+          <a href="https://www.figma.com/proto/0t1myBVE78V8e1gGEeGVtj/ui--m2?node-id=186-4951&starting-point-node-id=186%3A4951" target="_blank" class="bg-[#F9C068] text-black px-8 py-4 rounded-full font-bold hover:bg-[#76D2DB] transition-colors flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+            Lancer le prototype Web
+          </a>
+        </div>
+      </div>
     </div>
       <h3 class="text-3xl font-black mb-12 mt-12 text-white"> ○ Application AR</h2>
      <div class="flex flex-col items-center justify-center">
-      <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/0t1myBVE78V8e1gGEeGVtj/ui--m2?node-id=49-299&viewport=-8031%2C-541%2C0.3&scaling=scale-down&content-scaling=fixed&starting-point-node-id=49%3A299&page-id=49%3A275&embed-host=share" allowfullscreen></iframe>   
+      <div class="relative group rounded-3xl overflow-hidden shadow-2xl w-full max-w-[800px] aspect-video">
+        <img loading="lazy" src="../assets/images/immersion.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="AR App Prototype Thumbnail">
+        <div class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-90 group-hover:opacity-100 transition-opacity">
+          <a href="https://www.figma.com/proto/0t1myBVE78V8e1gGEeGVtj/ui--m2?node-id=49-299&starting-point-node-id=49%3A299" target="_blank" class="bg-[#F9C068] text-black px-8 py-4 rounded-full font-bold hover:bg-[#76D2DB] transition-colors flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+            Lancer le prototype AR
+          </a>
+        </div>
+      </div>
     </div>
      </section>
       </section>
