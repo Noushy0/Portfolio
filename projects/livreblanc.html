@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Duolingo UX/AR - Ines Ghannouchi</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Livre Blanc: UX designer & développeurs.">
+
+  <!-- Open Graph -->
+  <meta property="og:image" content="../assets/images/duolingo.png">
+
+  <!-- Favicon -->
+  <link rel="icon" href="../favicon.svg">
+
+  <!-- Tailwind -->
+  <link rel="stylesheet" href="../assets/css/tailwind.css">
+
+  <!-- Icons -->
+
+
+  <!-- GLOBAL STYLES (IMPORTANT) -->
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+  <!-- CURSOR -->
+  <div id="cursor" class="cursor-follower"></div>
+
+  <!-- APP ROOT (CRITICAL POUR ECO MODE) -->
+  <div id="app-root" class="min-h-screen relative overflow-x-hidden eco-mode">
+
+    <!-- NAV (IDENTIQUE HOME) -->
+        <header class="fixed top-0 left-0 w-full z-50 py-4 md:py-6 px-4 sm:px-6 md:px-8 lg:px-16 transition-all duration-300" style="view-transition-name: main-nav;">
+      <nav class="max-w-7xl mx-auto flex items-center justify-between">
+        <a href="https://www.inesghannouchi.com/" id="nav-logo" class="flex items-center gap-2 group">
+          <span class="text-xl md:text-2xl font-display font-bold text-white tracking-tighter logo-text">Ines Ghannouchi</span>
+        </a>
+
+        <div class="hidden md:flex items-center gap-10">
+          <a href="https://www.inesghannouchi.com/#about" id="nav-about-link" class="nav-link text-white/80 hover:text-white font-medium">Qui suis-je</a>
+          <a href="https://www.inesghannouchi.com/#work" id="nav-work-link" class="nav-link text-white/80 hover:text-white font-medium">Projets</a>
+          <a href="https://www.inesghannouchi.com/#contact" id="nav-contact-link" class="px-6 py-2 bg-white text-black rounded-full font-bold hover:bg-[#76D2DB] transition-colors">Contact</a>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <span class="text-xs font-bold text-white/40 uppercase tracking-widest">Eco Mode</span>
+          <button type="button" onclick="toggleEcoMode()" id="eco-toggle" class="w-14 h-7 bg-white/10 rounded-full relative p-1 transition-colors border border-white/20" aria-label="Toggle eco mode">
+            <div id="toggle-dot" class="w-5 h-5 rounded-full shadow-sm"></div>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="h-[60vh] flex items-end relative mt-20">
+      <img src="../assets/images/coverlivre.jpg" class="absolute inset-0 w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80"></div>
+    </section>
+
+    <!-- ABOUT -->
+      <div class="mx-auto max-w-7xl pt-20">
+    <h1 class="text-5xl md:text-7xl font-black text-white">Livre Blanc: UX designer & développeurs. Comment transformer leurs différences en complémentarité ?</h1>
+     </div>
+    <section class="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-12 gap-12">
+      <div class="lg:col-span-8">
+        <h2 class="text-4xl font-black mb-6 text-white">Sujet</h2>
+
+        <p class="text-white/70 mb-4">
+          En tant qu’étudiante en UX design, j’ai exploré un sujet souvent sous-estimé, la collaboration entre designers et développeurs.
+          Ce livre blanc décrypte les vrais défis du terrain, les outils qui changent la donne, les nouvelles pratiques et les clés pour mieux travailler ensemble. Le tout avec un regard frais, concret et un ton accessible.
+          Un guide utile pour les étudiants, junior en UX ou développement web.. et même les curieux du produit !
+        </p>
+      </div>
+
+      <div class="lg:col-span-4 bg-white/5 p-6 rounded-3xl border border-[#A0D585]">
+
+        <ul class="space-y-3 text-white/70">
+          <li><strong>Rôle:</strong> UX/UI researcher</li>
+          <li><strong>Durée:</strong> 5 mois</li>
+          <li><strong>Outils:</strong> Figma, Perplexity, Notion</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- PROCESS -->
+    <section class="bg-white/5 py-20">
+      <div class="max-w-7xl mx-auto px-6">
+
+        <h2 class="text-4xl font-black mb-12 text-white">Process</h2>
+
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <div class="p-6 bg-white/5 rounded-3xl text-white/70 border border-[#A0D585]">
+            <h3 class="font-bold mb-2">Veille & Interviews</h3>
+            <p class="text-sm text-white/50">Veille et recherche approfondie pendant 2 mois</p>
+          </div>
+
+          <div class="p-6 bg-white/5 rounded-3xl text-white/70 border border-[#A0D585]">
+            <h3 class="font-bold mb-2">Rédaction</h3>
+            <p class="text-sm text-white/50"> Rédaction du livre blanc à l'aide de l'IA tout en se basant sur la veille </p>
+          </div>
+
+          <div class="p-6 bg-white/5 rounded-3xl text-white/70 border border-[#A0D585]">
+            <h3 class="font-bold mb-2">Design</h3>
+            <p class="text-sm text-white/50">Design et mise en page sur Figma</p>
+          </div>
+    
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="max-w-7xl mx-auto px-6 py-20">
+      <h2 class="text-4xl font-black mb-12 text-white">Note de synthese</h2>
+      <p class="text-1xl font-white mb-12 mt-12 text-white"> 
+Ce livre blanc examine les enjeux, les difficultés et les leviers d’une collaboration fluide entre UX designers et développeurs.
+<BR><BR>Veille:
+<BR>Spotify a augmenté de 30% le taux d’engagement de leur fonctionnalité podcast en favorisant une collaboration étroite entre leurs équipes dev et ux.
+<BR>L’utilisation d’un design system permet de réduire le temps de développement de 47 %.
+<BR><BR>Comprendre les rôles:
+<BR>Les UX designers conçoivent des expériences intuitives en s’appuyant sur une approche centrée utilisateur, des méthodes de recherche qualitatives et des outils collaboratifs comme Figma, afin de répondre à des besoins réels.
+<BR>Les développeurs transforment les maquettes en produits fonctionnels et durables, en tenant compte des contraintes techniques, des délais et de la performance.
+<BR>Les trois principaux défis de la collaboration entre UX designers et développeurs sont souvent la mauvaise compréhension des rôles,  les contraintes de temps et de priorités dans les cycles de développement, ainsi que les difficultés liées à l’organisation et au transfert des livrables.
+<BR><BR>Le processus collaboratif idéal:
+<BR>Les 4 étapes clés de collaboration sont :
+<BR>La recherche utilisateur, la conception et prototypage, la phase du développement, tests.
+<BR>Mettre en place un Design system permet d’avoir un langage commun, cohérence visuelle et fonctionnelle.
+<BR>Des outils comme Figma, Storybook ou Zeroheight permettent de fluidifier la collaboration UX/dev.
+<BR><BR>Les tendances futures:
+<BR>L’IA intégrée à Figma aide les designers à gagner du temps en générant du contenu, en renommant les calques et en produisant des wireframes, facilitant ainsi la préparation pour les développeurs.
+<BR>Des IA comme GitHub Copilot aident les développeurs à coder plus vite, corriger en temps réel et détecter des bugs tôt, limitant ainsi les retours en fin de projet avec les designers.
+<BR>Ces avancements ont créé un nouveau rôle le UX Engineer, il s’agit d’un développeur front-end intégré à l’équipe design, fait le lien entre UX et développement.</p>
+      
+      </section>
+    <!-- CTA -->
+    <section class="py-10 text-center">
+      <a href="../index.html#work" class="bg-[#76D2DB] text-black px-8 py-4 rounded-full font-bold">
+        Voir d'autres projets
+      </a>
+    </section>
+
+          <footer id="contact" class="pt-16 md:pt-32 pb-8 md:pb-16 px-4 sm:px-6 md:px-8 lg:px-16 overflow-hidden">
+        <div class="max-w-7xl mx-auto relative">
+          <div class="footer-cta rounded-[2rem] md:rounded-[3rem] p-6 sm:p-12 md:p-16 lg:p-24 text-black text-center relative overflow-hidden">
+            <h2 class="footer-title text-4xl md:text-6xl lg:text-7xl font-black mb-6 md:mb-8 relative z-10 leading-tight">
+              Prêt à collaborer?
+            </h2>
+
+            <p class="text-base md:text-lg lg:text-xl max-w-xl mx-auto mb-8 md:mb-12 font-medium opacity-80 relative z-10">
+              Je suis actuellement ouverte à de nouveaux projets pour 2026. Créons ensemble des produits numériques à fort impact.
+            </p>
+
+            <a href="mailto:inesghannouchi001@gmail.com" id="footer-email-container" class="relative z-10 font-medium" aria-label="Send an email to Ines Ghannouchi">
+              inesghannouchi001@gmail.com
+            </a>
+          </div>
+
+          <div class="footer-bottom mt-12 md:mt-20 flex flex-col md:flex-row justify-between items-center gap-8 border-t border-white/10 pt-12">
+            <div class="flex items-center gap-3">
+              <span class="font-display font-bold text-white logo-text">Ines with ❤️</span>
+            </div>
+
+            <div class="flex gap-8">
+              <a href="https://www.behance.net/noushy1" class="text-white/40 hover:text-[#76D2DB] transition-colors font-medium" target="_blank" rel="noopener noreferrer" aria-label="Visit Ines Behance profile">Behance</a>
+              <a href="https://www.linkedin.com/in/ines-ghannouchi-97570a193/" class="text-white/40 hover:text-[#F9C068] transition-colors font-medium" target="_blank" rel="noopener noreferrer" aria-label="Visit Ines LinkedIn profile">LinkedIn</a>
+            </div>
+
+            <div class="flex flex-col items-center md:items-end gap-3">
+              <p class="text-white/40 text-sm">© 2026 Ines Ghannouchi — Designed for Planet First <span class="text-white font-bold">🍉</span></p>
+              <div id="ecoindex-badge"></div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+  <!-- GLOBAL SCRIPT (CRUCIAL) -->
+  <script src="../script.js"></script>
+
+</body>
+</html>
