@@ -445,3 +445,7 @@ button:focus-visible {
   will-change: transform;
   box-shadow: none !important;
 }
+
+.eco-mode .btn-eco-white {
+  color: white !important;
+}
