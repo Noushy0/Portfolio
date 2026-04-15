@@ -112,28 +112,176 @@ Au delà des marchés des collectivités et des professionnels, un des enjeux de
       </div>
     </section>
 
-    <!-- GALLERY -->
-    <section class="max-w-7xl mx-auto px-6 py-20">
-      <h2 class="text-4xl font-black mb-12 text-white">Le projet</h2>
+    <!-- UX STRATEGY REBUILD -->
+    <section class="max-w-7xl mx-auto px-6 py-20 text-white" id="duralex-ux-refactor">
+      <!-- (1) Analyse -->
+      <div class="mb-24">
+        <div class="flex items-center gap-4 mb-10">
+          <div class="w-4 h-4 bg-[#76D2DB] rotate-45"></div>
+          <h2 class="text-4xl font-black text-white">Analyse de l'existant</h2>
+        </div>
 
-      <div class="grid md:grid-cols-1 gap-6">
-        <img loading="lazy" src="../assets/images/detailsduralex.webp" class="rounded-3xl">
-      </div>
-  <section class="max-w-7xl mx-auto py-20">
-      <h2 class="text-4xl font-black mb-12 mt-12 text-white">Prototype</h2>
-     <div class="flex flex-col items-center justify-center">
-      <div class="relative rounded-3xl overflow-hidden shadow-2xl w-full max-w-[800px] aspect-video">
-        <img loading="lazy" src="../assets/images/detailsduralex.webp" class="w-full h-full object-cover" alt="Duralex Prototype Thumbnail">
-        <div class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center">
-          <a href="https://www.figma.com/proto/0o7CyRLpLphzUS0YBShGWc/Duralex--Copy-?page-id=4%3A2&node-id=2003-149&starting-point-node-id=2003%3A149" target="_blank" class="btn-eco-white bg-white/10 backdrop-blur-xl border border-white/20 text-white px-8 py-4 rounded-full font-bold hover:bg-[#76D2DB] hover:text-black transition-all flex items-center gap-3">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><polygon points="6 3 20 12 6 21 6 3"/></svg>
-            Lancer le prototype
-          </a>
+        <!-- Compréhension -->
+        <div class="bg-white/5 border border-white/10 rounded-[2rem] p-8 md:p-12 mb-16 grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h3 class="text-2xl font-bold mb-6 text-[#A0D585]">Notre compréhension du produit</h3>
+            <p class="text-white/80 leading-relaxed mb-6 font-medium text-lg">
+              Duralex est un E-commerce dédié aux professionnels notamment les collectivités telles que secteur de la restauration (HoReCa*), cantine scolaire qui propose des produits du quotidien robustes, pratiques et durables, qui allient sécurité, fonctionnalité et design intemporel.
+            </p>
+            <p class="text-xs text-white/50 italic border-l-2 border-[#76D2DB] pl-4">
+              *HoReCa : est un acronyme désignant le secteur d'activités de l'hôtellerie, de la restauration et des cafés.
+            </p>
+          </div>
+          <div class="rounded-[2rem] overflow-hidden aspect-square shadow-2xl">
+            <img loading="lazy" src="../assets/images/duralex-hero-crop.webp" class="w-full h-full object-cover">
+          </div>
+        </div>
+
+        <!-- The Matrix -->
+        <h3 class="text-2xl font-bold mb-8 text-center text-white">Classement des fonctionnalités selon les dimensions</h3>
+        <div class="overflow-x-auto mb-16 bg-white/5 rounded-[2rem] border border-white/10 p-6">
+          <table class="w-full text-left border-collapse min-w-[800px]">
+            <thead>
+              <tr class="text-[#76D2DB] text-sm border-b border-white/10">
+                <th class="py-4 px-4 font-bold">Fonctionnalités existantes</th>
+                <th class="py-4 px-4 text-center">Rech.</th>
+                <th class="py-4 px-4 text-center">Conseil</th>
+                <th class="py-4 px-4 text-center">Gestion</th>
+                <th class="py-4 px-4 text-center">Promo.</th>
+                <th class="py-4 px-4 text-center">Achat</th>
+              </tr>
+            </thead>
+            <tbody class="text-sm text-white/80">
+              <tr class="border-b border-white/5 hover:bg-white/5 transition-colors"><td class="py-3 px-4">Filtrer ma recherche</td><td class="text-center">🔵</td><td></td><td></td><td></td><td></td></tr>
+              <tr class="border-b border-white/5 hover:bg-white/5 transition-colors"><td class="py-3 px-4">Accéder aux best-sellers</td><td class="text-center">🔵</td><td></td><td></td><td class="text-center">🔵</td><td></td></tr>
+              <tr class="border-b border-white/5 hover:bg-white/5 transition-colors"><td class="py-3 px-4">Accéder à toutes les promotions</td><td class="text-center">🔵</td><td></td><td></td><td class="text-center">🔵</td><td></td></tr>
+              <tr class="border-b border-white/5 hover:bg-white/5 transition-colors"><td class="py-3 px-4">Découvrir la fiche produit</td><td></td><td class="text-center">🔵</td><td></td><td class="text-center">🔵</td><td></td></tr>
+              <tr class="border-b border-white/5 hover:bg-white/5 transition-colors"><td class="py-3 px-4">Créer un compte / Se connecter / Modifier</td><td></td><td></td><td class="text-center">🔵</td><td></td><td></td></tr>
+              <tr class="border-b border-white/5 hover:bg-white/5 transition-colors"><td class="py-3 px-4">Connaître les promos en cours</td><td class="text-center">🔵</td><td></td><td></td><td class="text-center">🔵</td><td class="text-center">🔵</td></tr>
+              <tr class="border-b border-white/5 hover:bg-white/5 transition-colors"><td class="py-3 px-4">Découvrir la sélection / le blog</td><td></td><td class="text-center">🔵</td><td></td><td class="text-center">🔵</td><td></td></tr>
+              <tr class="border-b border-white/5 hover:bg-white/5 transition-colors"><td class="py-3 px-4">Ajouter un produit / Partager wishlist</td><td></td><td></td><td class="text-center">🔵</td><td></td><td class="text-center">🔵</td></tr>
+              <tr class="hover:bg-white/5 transition-colors"><td class="py-3 px-4">Connaître ma jauge de livraison gratuite</td><td></td><td></td><td class="text-center">🔵</td><td></td><td class="text-center">🔵</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Dimensions -->
+        <div class="space-y-16 mb-20">
+          
+          <!-- RECHERCHE -->
+          <div class="grid lg:grid-cols-12 gap-8 items-center bg-white/5 rounded-[2rem] p-8 border border-white/10 relative overflow-hidden">
+            <div class="lg:col-span-6 relative z-10">
+              <h4 class="text-3xl font-display font-black text-[#F9C068] mb-4">Dimension Recherche</h4>
+              <p class="text-white/80 mb-6"><strong class="text-white">Objectif:</strong> Faciliter le processus de recherche afin que l'utilisateur ait facilement accès à ce qu'il souhaite.</p>
+              <h5 class="font-bold text-white mb-4">UX actuelle:</h5>
+              <ul class="space-y-4 mb-6">
+                <li class="flex gap-3 text-white/80"><span class="text-[#A0D585] text-xl leading-none">＋</span> L'expérience de recherche est flexible grâce a plusieurs points d'entrée.</li>
+                <li class="flex gap-3 text-white/80"><span class="text-red-400 text-xl leading-none">－</span> Problème de wording, le terme 'ESHOP' est source de confusion.</li>
+                <li class="flex gap-3 text-white/80"><span class="text-red-400 text-xl leading-none">－</span> Il manque une source d'inspiration.</li>
+              </ul>
+            </div>
+            <div class="lg:col-span-6 rounded-[1.5rem] overflow-hidden shadow-2xl relative z-10 border border-white/10">
+              <img loading="lazy" src="../assets/images/duralex-recherche-crop.webp" class="w-full h-auto object-cover">
+            </div>
+          </div>
+
+          <!-- CONSEIL -->
+          <div class="grid lg:grid-cols-12 gap-8 items-center bg-white/5 rounded-[2rem] p-8 border border-white/10 relative overflow-hidden">
+            <div class="lg:col-span-6 lg:order-last relative z-10">
+              <h4 class="text-3xl font-display font-black text-[#FE9EC7] mb-4">Dimension Conseil</h4>
+              <p class="text-white/80 mb-6"><strong class="text-white">Objectif:</strong> Mettre en avant des conseils et astuces inspirantes, inspirer et optimiser le parcours.</p>
+              <h5 class="font-bold text-white mb-4">UX actuelle:</h5>
+              <ul class="space-y-4 mb-6">
+                <li class="flex gap-3 text-white/80"><span class="text-red-400 text-xl leading-none">－</span> La page " Actualités " souffre de déséquilibres visuels.</li>
+                <li class="flex gap-3 text-white/80"><span class="text-red-400 text-xl leading-none">－</span> Les photos inspirantes ne renvoient pas vers des conseils.</li>
+                <li class="flex gap-3 text-white/80"><span class="text-red-400 text-xl leading-none">－</span> La page " Astuces déco " présente un manque de contenu.</li>
+              </ul>
+            </div>
+            <div class="lg:col-span-6 rounded-[1.5rem] overflow-hidden shadow-2xl relative z-10 border border-white/10">
+              <img loading="lazy" src="../assets/images/duralex-conseil-crop.webp" class="w-full h-auto object-cover">
+            </div>
+          </div>
+
+          <!-- ACHAT -->
+          <div class="grid lg:grid-cols-12 gap-8 items-center bg-white/5 rounded-[2rem] p-8 border border-white/10 relative overflow-hidden">
+            <div class="lg:col-span-6 relative z-10">
+              <h4 class="text-3xl font-display font-black text-[#76D2DB] mb-4">Dimension Achat</h4>
+              <p class="text-white/80 mb-6"><strong class="text-white">Objectif:</strong> Anticiper à moyen terme les futurs blocages.</p>
+              <h5 class="font-bold text-white mb-4">UX actuelle:</h5>
+              <ul class="space-y-4 mb-6">
+                <li class="flex gap-3 text-white/80"><span class="text-[#A0D585] text-xl leading-none">＋</span> Expérience fluide avec des éléments motivants (jauge de livraison).</li>
+                <li class="flex gap-3 text-white/80"><span class="text-[#A0D585] text-xl leading-none">＋</span> La mémorisation des données.</li>
+                <li class="flex gap-3 text-white/80"><span class="text-red-400 text-xl leading-none">－</span> Les boutons d'actions varient d'une page à l'autre créant de la confusion.</li>
+              </ul>
+            </div>
+            <div class="lg:col-span-6 rounded-[1.5rem] overflow-hidden shadow-2xl relative z-10 border border-white/10">
+              <img loading="lazy" src="../assets/images/duralex-achat-crop.webp" class="w-full h-auto object-cover">
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ETAT DES LIEUX -->
+        <div class="bg-white/5 border border-white/10 rounded-[2rem] p-8 mb-20 text-sm md:text-base">
+          <h3 class="text-2xl font-bold mb-8 text-center text-white">État des lieux (Audit)</h3>
+          <div class="grid grid-cols-[1fr_auto_1fr] gap-4 mb-4 border-b border-white/10 pb-4 text-white"><strong class="text-[#76D2DB]">Recherche</strong><span class="text-[#F9C068]">★★★★☆</span><span class="text-white/70">Modifier le wording et le visuel point d'entrée catalogue.</span></div>
+          <div class="grid grid-cols-[1fr_auto_1fr] gap-4 mb-4 border-b border-white/10 pb-4 text-white"><strong class="text-[#76D2DB]">Conseil</strong><span class="text-[#F9C068]">★★★☆☆</span><span class="text-white/70">Ajouter plus de contenu et sur la page d'accueil.</span></div>
+          <div class="grid grid-cols-[1fr_auto_1fr] gap-4 mb-4 border-b border-white/10 pb-4 text-white"><strong class="text-[#76D2DB]">Gestion</strong><span class="text-[#F9C068]">★★★★☆</span><span class="text-white/70">Structurer le contenu et modifier le wording.</span></div>
+          <div class="grid grid-cols-[1fr_auto_1fr] gap-4 mb-4 border-b border-white/10 pb-4 text-white"><strong class="text-[#76D2DB]">Promotion</strong><span class="text-[#F9C068]">★★★☆☆</span><span class="text-white/70">Rendre l'information textuelle plus digeste et agréable.</span></div>
+          <div class="grid grid-cols-[1fr_auto_1fr] gap-4 text-white"><strong class="text-[#76D2DB]">Achat</strong><span class="text-[#F9C068]">★★★★☆</span><span class="text-white/70">Homogénéiser les différents CTA du site.</span></div>
         </div>
       </div>
-     </div>
-     </section>
-      </section>
+
+      <!-- (2) Recommandations -->
+      <div class="mb-20">
+        <div class="flex items-center gap-4 mb-10">
+          <div class="w-4 h-4 bg-[#FE9EC7] rotate-45"></div>
+          <h2 class="text-4xl font-black text-white">Recommandations UX</h2>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-12 mb-16 items-start">
+          <div class="lg:col-span-8">
+            <h3 class="text-2xl font-bold mb-6 text-[#A0D585]">Notre avis</h3>
+            <p class="text-white/80 leading-relaxed mb-4">Pour devenir une marque de référence sur le marché de la verrerie, il est essentiel que Duralex adopte un nouveau positionnement stratégique visant à <strong class="text-white">redorer et moderniser</strong> son image, renforcer son attractivité et se démarquer ainsi de ses concurrents.</p>
+            <p class="text-white/80 leading-relaxed mb-4">La première étape consiste à repenser l'ensemble de la communication pour refléter les valeurs d'esthétisme, de durabilité et de responsabilité. Une mise en avant des engagements écologiques.</p>
+            <p class="text-white/80 leading-relaxed">La seconde étape concerne l'expérience utilisateur : intégrer de nouvelles fonctionnalités interactives et optimiser la navigation.</p>
+          </div>
+          <div class="lg:col-span-4 rounded-[2rem] overflow-hidden shadow-xl">
+            <img loading="lazy" src="../assets/images/duralex-avis-crop.webp" class="w-full h-full object-cover">
+          </div>
+        </div>
+
+        <!-- Partis-pris -->
+        <div class="grid md:grid-cols-3 gap-6 mb-16">
+          <div class="bg-gradient-to-br from-[#76D2DB]/20 to-transparent p-8 rounded-[2rem] border border-[#76D2DB]/30">
+            <h4 class="text-xl font-black text-[#76D2DB] mb-3">1. Customisation</h4>
+            <p class="text-white/80 text-sm">Un produit qui s'adapte aux besoins et style du client.</p>
+          </div>
+          <div class="bg-gradient-to-br from-[#F9C068]/20 to-transparent p-8 rounded-[2rem] border border-[#F9C068]/30">
+            <h4 class="text-xl font-black text-[#F9C068] mb-3">2. Inspiration</h4>
+            <p class="text-white/80 text-sm">Permettre aux utilisateurs de découvrir des idées harmonieuses.</p>
+          </div>
+          <div class="bg-gradient-to-br from-[#FE9EC7]/20 to-transparent p-8 rounded-[2rem] border border-[#FE9EC7]/30">
+            <h4 class="text-xl font-black text-[#FE9EC7] mb-3">3. Informé</h4>
+            <p class="text-white/80 text-sm">Structurer le contenu et modifier le wording.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="flex flex-col items-center justify-center">
+        <h2 class="text-4xl font-black mb-12 mt-12 text-white text-center">Prototype Interactif</h2>
+        <div class="relative rounded-3xl overflow-hidden shadow-2xl w-full max-w-[800px] aspect-video">
+          <img loading="lazy" src="../assets/images/detailsduralex.webp" class="w-full h-full object-cover" alt="Duralex Prototype Thumbnail">
+          <div class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center">
+            <a href="https://www.figma.com/proto/0o7CyRLpLphzUS0YBShGWc/Duralex--Copy-?page-id=4%3A2&node-id=2003-149&starting-point-node-id=2003%3A149" target="_blank" class="btn-eco-white bg-white/10 backdrop-blur-xl border border-white/20 text-white px-8 py-4 rounded-full font-bold hover:bg-[#76D2DB] hover:text-black transition-all flex items-center gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+              Lancer le prototype
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- CTA -->
     <section class="py-10 text-center">
       <a href="../index.html#work" class="bg-[#76D2DB] text-black px-8 py-4 rounded-full font-bold">
