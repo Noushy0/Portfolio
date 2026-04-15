@@ -449,3 +449,8 @@ button:focus-visible {
 .eco-mode .btn-eco-white {
   color: white !important;
 }
+
+.eco-mode .border-white\/5,
+.eco-mode .border-white\/10 {
+  border-color: rgba(0, 0, 0, 0.2) !important;
+}
