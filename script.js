@@ -63,4 +63,33 @@ window.addEventListener('scroll', () => {
     header.classList.remove('backdrop-blur-xl', 'bg-black/30', 'bg-white/70');
   }
 });
-<script data-goatcounter="https://inesghannouchi.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+// ── Statistiques de clics (GoatCounter : sans cookie, ~3,5 Ko, ignoré en local) ──
+// Compte chaque clic sur un lien ou un bouton, avec la page et le nom du bouton.
+const GOATCOUNTER_SITE = 'inesghannouchi';
+
+if (!GOATCOUNTER_SITE.startsWith('__')) {
+  const gc = document.createElement('script');
+  gc.async = true;
+  gc.dataset.goatcounter = `https://${GOATCOUNTER_SITE}.goatcounter.com/count`;
+  gc.src = 'https://gc.zgo.at/count.js';
+  document.head.appendChild(gc);
+}
+
+function trackEvent(name) {
+  if (window.goatcounter && window.goatcounter.count) {
+    window.goatcounter.count({ path: name, title: name, event: true });
+  }
+}
+
+window.trackEvent = trackEvent;
+
+document.addEventListener('click', (e) => {
+  const el = e.target.closest('a, button');
+  if (!el) return;
+  const page = location.pathname.split('/').pop().replace('.html', '') || 'accueil';
+  const label = el.id === 'eco-toggle'
+    ? `Eco mode ${isEco ? 'désactivé' : 'activé'}`
+    : el.dataset.track || el.getAttribute('aria-label') || el.textContent.trim().replace(/\s+/g, ' ').slice(0, 60) || el.id || 'sans nom';
+  trackEvent(`clic · ${page} · ${label}`);
+}, true);
