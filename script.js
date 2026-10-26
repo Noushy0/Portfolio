@@ -63,3 +63,4 @@ window.addEventListener('scroll', () => {
     header.classList.remove('backdrop-blur-xl', 'bg-black/30', 'bg-white/70');
   }
 });
+<script data-goatcounter="https://inesghannouchi.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
