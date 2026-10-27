@@ -1,4 +1,44 @@
-@import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,900,700&f[]=satoshi@400,500,700&display=swap');
+/* Polices hébergées sur le site (Fontshare, ITF Free Font License) : seules les graisses utilisées */
+
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('assets/fonts/cabinet-grotesk-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('assets/fonts/cabinet-grotesk-900.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('assets/fonts/satoshi-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('assets/fonts/satoshi-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('assets/fonts/satoshi-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   --golden: #F9C068;
@@ -457,4 +497,35 @@ button:focus-visible {
 .eco-mode .border-white\/5,
 .eco-mode .border-white\/10 {
   border-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Impression : fond blanc, texte noir, sans navigation ni visuels décoratifs */
+@media print {
+  html,
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  * {
+    color: #000 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  header,
+  nav,
+  button,
+  img,
+  svg,
+  video,
+  #ecoindex-badge {
+    display: none !important;
+  }
+
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+  }
 }
