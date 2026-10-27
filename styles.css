@@ -214,21 +214,47 @@ button:focus-visible {
   align-items: flex-start;
 }
 
+/* Explication du mode éco, au survol ou au focus clavier de l'interrupteur */
+.eco-tip {
+  position: absolute;
+  top: 100%;
+  right: 1rem;
+  max-width: 18rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.75rem;
+  background-color: #1b1e24;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+#eco-toggle:hover + .eco-tip,
+#eco-toggle:focus-visible + .eco-tip {
+  visibility: visible;
+}
+
+/* Mode éco : fond noir pur (un pixel noir est éteint sur un écran OLED), grandes zones claires assombries,
+   et on coupe ce qui fait travailler le processeur et la carte graphique en continu */
 .eco-mode {
   --eco-green: #A0D585;
-  background-color: var(--bg-eco) !important;
-  color: #2D2D2D !important;
+  background-color: #000 !important;
 }
 
-.eco-mode * {
-  pointer-events: none !important;
+.eco-mode .footer-cta {
+  background-color: var(--footer-title);
+  color: #fff;
 }
 
-.eco-mode #eco-toggle,
-.eco-mode #eco-toggle *,
-.eco-mode a,
-.eco-mode button {
-  pointer-events: auto !important;
+.eco-mode .footer-title {
+  color: var(--footer-blue);
+}
+
+.eco-mode #footer-email-container {
+  background-color: transparent !important;
+  border: 1px solid var(--footer-blue);
 }
 
 .eco-mode .bg-mesh,
@@ -253,6 +279,11 @@ button:focus-visible {
   transform: none !important;
   box-shadow: none !important;
   filter: none !important;
+  backdrop-filter: none !important;
+}
+
+.eco-mode header.backdrop-blur-xl {
+  background-color: rgba(0, 0, 0, 0.95) !important;
 }
 
 .eco-mode *:hover,
@@ -262,68 +293,8 @@ button:focus-visible {
   transform: none !important;
   box-shadow: none !important;
   filter: none !important;
-  color: inherit !important;
-  border-color: inherit !important;
   outline: none !important;
-  opacity: 1 !important;
   text-decoration: none !important;
-}
-
-.eco-mode .text-white,
-.eco-mode .text-white\/80,
-.eco-mode .text-white\/70,
-.eco-mode .text-white\/60,
-.eco-mode .text-white\/50,
-.eco-mode .text-white\/40,
-.eco-mode .text-white\/20,
-.eco-mode h1:not(.keep-white),
-.eco-mode h2:not(.keep-white),
-.eco-mode h3:not(.keep-white),
-.eco-mode p:not(.keep-white) 
-.eco-mode .logo-text,
-.eco-mode .nav-link {
-  color: #2D2D2D !important;
-}
-
-.eco-mode .text-\[\#F9C068\],
-.eco-mode .text-\[\#76D2DB\],
-.eco-mode .text-\[\#FE9EC7\],
-.eco-mode span.text-\[\#F9C068\],
-.eco-mode span.text-\[\#76D2DB\] {
-  color: var(--eco-green) !important;
-}
-
-.eco-mode .bg-\[\#76D2DB\],
-.eco-mode .bg-\[\#F9C068\],
-.eco-mode .bg-\[\#FDC468\],
-.eco-mode .bg-\[\#FE9EC7\],
-.eco-mode .bg-white {
-  background-color: var(--eco-green) !important;
-  color: #2D2D2D !important;
-}
-
-.eco-mode .tag-badge,
-.eco-mode .project-label-warning,
-.eco-mode .px-3.py-1,
-.eco-mode .px-4.py-1\.5,
-.eco-mode .bg-red-500 {
-  background-color: var(--eco-green) !important;
-  color: #2D2D2D !important;
-  opacity: 1 !important;
-}
-
-.eco-mode .footer-cta,
-.eco-mode footer .bg-\[\#76D2DB\] {
-  background-color: var(--eco-green) !important;
-  color: #2D2D2D !important;
-}
-
-.eco-mode .footer-title {
-  color: #2D2D2D !important;
-}
-
-.eco-mode .px-4.py-1\.5 {
-  border-color: rgba(0, 0, 0, 0.15) !important;
 }
 
 .eco-mode #eco-toggle {
@@ -349,7 +320,6 @@ button:focus-visible {
 .eco-mode .md\:group-hover\:scale-110,
 .eco-mode .group:hover img {
   transform: scale(1) !important;
-  filter: grayscale(100%) !important;
 }
 
 .eco-mode #work,
@@ -359,12 +329,6 @@ button:focus-visible {
   box-shadow: none !important;
   transform: none !important;
   transition: none !important;
-}
-
-.eco-mode #footer-email-container {
-  background-color: rgba(255, 255, 255, 0.4) !important;
-  color: #2D2D2D !important;
-  border-color: #2D2D2D !important;
 }
 
 .eco-mode .project-card {
@@ -393,7 +357,6 @@ button:focus-visible {
 }
 
 .eco-mode img {
-  filter: grayscale(100%) !important;
   transition: none !important;
 }
 
@@ -486,17 +449,19 @@ button:focus-visible {
   box-shadow: none !important;
 }
 
-.eco-mode .btn-eco-white {
-  color: white !important;
-}
-
 .eco-mode .no-eco {
   display: none !important;
 }
 
-.eco-mode .border-white\/5,
-.eco-mode .border-white\/10 {
-  border-color: rgba(0, 0, 0, 0.2) !important;
+/* Animations coupées aussi en mode normal si le visiteur a demandé moins de mouvement */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* Impression : fond blanc, texte noir, sans navigation ni visuels décoratifs */

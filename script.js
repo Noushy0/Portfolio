@@ -4,19 +4,28 @@ const appRoot = document.getElementById('app-root');
 const modeToggle = localStorage.getItem('mode') || 'eco';
 let isEco = modeToggle === 'eco';
 
-function applyMode() {
-  const badge = document.getElementById('ecoindex-badge');
+// Les images ont une version légère par défaut (mode éco) ; la version complète n'est chargée qu'en mode normal
+function loadFullImages() {
+  document.querySelectorAll('img[data-full-src]').forEach((img) => {
+    if (img.dataset.fullSrcset) img.srcset = img.dataset.fullSrcset;
+    img.src = img.dataset.fullSrc;
+    img.removeAttribute('data-full-src');
+  });
+}
 
+function applyMode() {
   if (!appRoot) return;
+
+  const toggle = document.getElementById('eco-toggle');
+  if (toggle) toggle.setAttribute('aria-pressed', String(isEco));
+  if (!isEco) loadFullImages();
 
   if (isEco) {
     appRoot.classList.add('eco-mode');
     if (cursor) cursor.style.opacity = '0';
-    if (badge) badge.removeAttribute('data-theme');
   } else {
     appRoot.classList.remove('eco-mode');
     if (cursor) cursor.style.opacity = '1';
-    if (badge) badge.setAttribute('data-theme', 'dark');
   }
 }
 
@@ -56,13 +65,12 @@ window.addEventListener('scroll', () => {
   if (!header) return;
 
   if (window.scrollY > 50) {
-    header.classList.add('backdrop-blur-xl');
-    header.classList.add(isEco ? 'bg-white/70' : 'bg-black/30');
-    header.classList.remove(isEco ? 'bg-black/30' : 'bg-white/70');
+    // En mode éco, styles.css remplace ce flou (coûteux) par un fond sombre opaque
+    header.classList.add('backdrop-blur-xl', 'bg-black/30');
   } else {
-    header.classList.remove('backdrop-blur-xl', 'bg-black/30', 'bg-white/70');
+    header.classList.remove('backdrop-blur-xl', 'bg-black/30');
   }
-});
+}, { passive: true });
 
 // ── Statistiques de clics (GoatCounter : sans cookie, ~3,5 Ko, ignoré en local) ──
 // Compte chaque clic sur un lien ou un bouton, avec la page et le nom du bouton.

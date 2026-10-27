@@ -40,9 +40,10 @@
 
         <div class="flex items-center gap-3">
           <span class="text-xs font-bold text-white/40 uppercase tracking-widest">Eco Mode</span>
-          <button type="button" onclick="toggleEcoMode()" id="eco-toggle" class="w-14 h-7 bg-white/10 rounded-full relative p-1 transition-colors border border-white/20" aria-label="Toggle eco mode">
+          <button type="button" onclick="toggleEcoMode()" id="eco-toggle" class="w-14 h-7 bg-white/10 rounded-full relative p-1 transition-colors border border-white/20" aria-label="Mode éco" aria-pressed="true" aria-describedby="eco-tip">
             <div id="toggle-dot" class="w-5 h-5 rounded-full shadow-sm"></div>
           </button>
+          <span id="eco-tip" role="tooltip" class="eco-tip">Le mode éco coupe les animations, passe le fond en noir pour les écrans OLED et charge des images plus légères.</span>
         </div>
       </nav>
     </header>
@@ -119,7 +120,7 @@
             <div class="project-card group cursor-pointer">
               <a href="projects/pif.html" class="block" aria-label="Ouvrir le projet Pif">
                 <div class="relative aspect-[4/3] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden bg-slate-900 mb-6">
-                  <img loading="lazy" decoding="async" width="800" height="600" src="assets/images/cover-pif-card.webp" srcset="assets/images/cover-pif-card.webp 800w, assets/images/cover-pif-card-1200.webp 1200w" sizes="(min-width: 768px) 660px, 100vw" class="w-full h-full object-cover md:group-hover:scale-110 transition-transform duration-700" alt="Pif project preview">
+                  <img loading="lazy" decoding="async" width="800" height="600" src="assets/images/cover-pif-card-eco.webp" data-full-src="assets/images/cover-pif-card.webp" data-full-srcset="assets/images/cover-pif-card.webp 800w, assets/images/cover-pif-card-1200.webp 1200w" sizes="(min-width: 768px) 660px, 100vw" class="w-full h-full object-cover md:group-hover:scale-110 transition-transform duration-700" alt="Pif project preview">
                 </div>
               </a>
               <div class="flex items-center gap-3 mb-3 flex-wrap">
@@ -138,7 +139,7 @@
               <div class="project-card group cursor-pointer md:mt-16">
               <a href="projects/duralex.html" class="block" aria-label="Open Duralex project on Behance">
                 <div class="relative aspect-[4/3] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden bg-slate-900 mb-6">
-                  <img loading="lazy" decoding="async" width="800" height="600" src="assets/images/cover-duralex-opt.webp" class="w-full h-full object-cover md:group-hover:scale-110 transition-transform duration-700" alt="Duralex project preview">
+                  <img loading="lazy" decoding="async" width="800" height="600" src="assets/images/cover-duralex-opt-eco.webp" data-full-src="assets/images/cover-duralex-opt.webp" class="w-full h-full object-cover md:group-hover:scale-110 transition-transform duration-700" alt="Duralex project preview">
                 </div>
               </a>
               <div class="flex items-center gap-3 mb-3 flex-wrap">
@@ -154,7 +155,7 @@
             <div class="project-card group cursor-pointer">
               <a href="projects/livreblanc.html" class="block" aria-label="Open UX designers et développeurs project">
                 <div class="relative aspect-[4/3] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden bg-slate-900 mb-6">
-                  <img loading="lazy" decoding="async" width="800" height="600" src="assets/images/cover-livreblanc.webp" class="w-full h-full object-cover md:group-hover:scale-110 transition-transform duration-700" alt="UX designers et développeurs project preview">
+                  <img loading="lazy" decoding="async" width="800" height="600" src="assets/images/cover-livreblanc-eco.webp" data-full-src="assets/images/cover-livreblanc.webp" class="w-full h-full object-cover md:group-hover:scale-110 transition-transform duration-700" alt="UX designers et développeurs project preview">
                 </div>
               </a>
               <div class="flex items-center gap-3 mb-3 flex-wrap">
@@ -170,7 +171,7 @@
            <div class="project-card group cursor-pointer md:mt-16">
               <a href="projects/duolingo.html" aria-label="Open Duolingo project on Behance" >
                 <div class="relative aspect-[4/3] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden bg-slate-900 mb-6">
-                  <img loading="lazy" decoding="async" width="800" height="600" src="assets/images/cover-duolingo.webp" class="w-full h-full object-cover md:group-hover:scale-110 transition-transform duration-700" alt="Duolingo project preview">
+                  <img loading="lazy" decoding="async" width="800" height="600" src="assets/images/cover-duolingo-eco.webp" data-full-src="assets/images/cover-duolingo.webp" class="w-full h-full object-cover md:group-hover:scale-110 transition-transform duration-700" alt="Duolingo project preview">
                 </div>
               </a>
               <div class="flex items-center gap-3 mb-3 flex-wrap">
@@ -187,7 +188,7 @@
             <div class="project-card group cursor-pointer">
               <a href="projects/hellofresh.html" class="block" aria-label="Open HelloFresh project on Behance">
                 <div class="relative aspect-[4/3] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden bg-slate-900 mb-6">
-                  <img loading="lazy" decoding="async" width="800" height="600" src="assets/images/cover-hellofresh.webp" class="w-full h-full object-cover hellofresh-photo md:group-hover:scale-110 transition-transform duration-700" alt="HelloFresh project preview">
+                  <img loading="lazy" decoding="async" width="800" height="600" src="assets/images/cover-hellofresh-eco.webp" data-full-src="assets/images/cover-hellofresh.webp" class="w-full h-full object-cover hellofresh-photo md:group-hover:scale-110 transition-transform duration-700" alt="HelloFresh project preview">
                 </div>
               </a>
               <div class="flex items-center gap-3 mb-3 flex-wrap">
@@ -222,7 +223,7 @@
                   <div class="project-label-warning">
                     Hors sujet
                   </div>
-                  <img loading="lazy" decoding="async" width="800" height="600" src="assets/images/cover-modelage.webp" class="w-full h-full object-cover md:group-hover:scale-110 transition-transform duration-700" alt="Modelage project preview">
+                  <img loading="lazy" decoding="async" width="800" height="600" src="assets/images/cover-modelage-eco.webp" data-full-src="assets/images/cover-modelage.webp" class="w-full h-full object-cover md:group-hover:scale-110 transition-transform duration-700" alt="Modelage project preview">
                 </div>
               </a>
               <div class="flex items-center gap-3 mb-3 flex-wrap">
@@ -264,8 +265,7 @@
 
             <div class="flex flex-col items-center md:items-end gap-3">
               <p class="text-white/40 text-sm">© 2026 Ines Ghannouchi — Designed for Planet First <span class="text-white font-bold">🍉</span></p>
-            <div id="ecoindex-badge" data-theme="dark"></div>
-            <script src="https://cdn.jsdelivr.net/gh/cnumr/ecoindex_badge@3/assets/js/ecoindex-badge.js" defer></script>
+            <a href="https://bff.ecoindex.fr/redirect/?url=https%3A%2F%2Fwww.inesghannouchi.com%2F" target="_blank" rel="noopener noreferrer"><img src="https://bff.ecoindex.fr/badge/?theme=dark&amp;url=https%3A%2F%2Fwww.inesghannouchi.com%2F" width="108" height="32" loading="lazy" decoding="async" alt="Score EcoIndex de cette page"></a>
             </div>
           </div>
         </div>
