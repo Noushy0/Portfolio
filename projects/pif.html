@@ -6,8 +6,7 @@
   <title>PIF - Ines Ghannouchi</title>
 
   <!-- SEO -->
-  <meta name="description" content="PIF, l'app qui rend le vin accessible. Étude de cas confidentielle.">
-  <meta name="robots" content="noindex">
+  <meta name="description" content="PIF, l'app qui rend le vin accessible. Étude de cas.">
 
   <!-- Open Graph -->
   <meta property="og:title" content="PIF - Ines Ghannouchi">
@@ -22,45 +21,13 @@
   <!-- GLOBAL STYLES (IMPORTANT) -->
   <link rel="stylesheet" href="../styles.css">
 
-  <!-- PIF : styles propres à cette page (accès par code + classes absentes du tailwind.css compilé) -->
+  <!-- PIF : classes utilisées par le contenu mais absentes du tailwind.css compilé -->
   <style>
-    /* Le mode éco coupe les clics sur tout sauf a/button : on réactive les champs du formulaire */
-    .eco-mode input, .eco-mode textarea, .eco-mode label, .eco-mode .pif-gate * { pointer-events: auto !important; }
-
-    .pif-gate { max-width: 640px; margin: 0 auto; padding: 5rem 1.5rem; }
-    .pif-card { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: 2rem; padding: 2.5rem; }
-    .pif-lock { width: 56px; height: 56px; border-radius: 9999px; display: grid; place-items: center; background: rgba(254,158,199,.15); color: #FE9EC7; margin-bottom: 1.5rem; }
-    .pif-tabs { display: flex; gap: .5rem; background: rgba(255,255,255,.06); border-radius: 9999px; padding: .375rem; margin: 2rem 0; }
-    .pif-tab { flex: 1; border: 0; border-radius: 9999px; padding: .75rem 1rem; font-weight: 700; background: transparent; color: rgba(255,255,255,.6); cursor: pointer; font: inherit; font-weight: 700; }
-    .pif-tab[aria-selected="true"] { background: #fff; color: #000; }
-    .pif-field { display: block; margin-bottom: 1rem; }
-    .pif-field span { display: block; font-size: .875rem; font-weight: 700; color: rgba(255,255,255,.8); margin-bottom: .5rem; }
-    .pif-input { width: 100%; box-sizing: border-box; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.15); border-radius: 1rem; padding: .875rem 1rem; color: #fff; font: inherit; }
-    .pif-input:focus { outline: 2px solid #76D2DB; outline-offset: 2px; }
-    .pif-btn { width: 100%; border: 0; border-radius: 9999px; padding: 1rem; font: inherit; font-weight: 700; background: #76D2DB; color: #000; cursor: pointer; margin-top: .5rem; }
-    .pif-btn[disabled] { opacity: .5; cursor: wait; }
-    .pif-msg { margin-top: 1rem; font-size: .9rem; min-height: 1.4em; }
-    .pif-msg.err { color: #f87171; }
-    .pif-msg.ok { color: #A0D585; }
-    .pif-hp { position: absolute; left: -9999px; }
-    [hidden] { display: none !important; }
-
-    /* Mode éco : version claire du formulaire */
-    .eco-mode .pif-card { background: rgba(0,0,0,.03); border-color: rgba(0,0,0,.15); }
-    .eco-mode .pif-tabs { background: rgba(0,0,0,.06); }
-    .eco-mode .pif-tab { color: #2D2D2D; }
-    .eco-mode .pif-tab[aria-selected="true"] { background: #2D2D2D; color: #fff !important; }
-    .eco-mode .pif-field span { color: #2D2D2D; }
-    .eco-mode .pif-input { background: #fff; border-color: rgba(0,0,0,.2); color: #2D2D2D; }
-    .eco-mode .pif-btn { background: var(--eco-green); color: #2D2D2D; }
-    .eco-mode .pif-lock { background: rgba(0,0,0,.06); color: #2D2D2D; }
-
-    /* Classes utilisées par le contenu PIF mais absentes du tailwind.css compilé */
     .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .space-y-8 > * + * { margin-top: 2rem; }
     .space-y-10 > * + * { margin-top: 2.5rem; }
-    .pif-btn, .pif-tab, .pif-hover { transition: filter .2s ease; }
-    .pif-btn:hover, .pif-tab:hover, .pif-hover:hover { filter: brightness(.88); }
+    .pif-hover { transition: filter .2s ease; }
+    .pif-hover:hover { filter: brightness(.88); }
     .max-w-3xl { max-width: 48rem; }
     .rounded-\[1\.5rem\] { border-radius: 1.5rem; }
     .text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
@@ -128,57 +95,329 @@
       <p class="text-white/70 mt-4">L'app qui rend le vin accessible : explorer, apprendre, noter.</p>
     </div>
 
-    <!-- ACCÈS PAR CODE -->
-    <section id="pif-gate" class="pif-gate">
-      <div class="pif-card">
-        <div class="pif-lock" aria-hidden="true">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-        </div>
-        <h2 class="text-3xl font-black text-white">Projet confidentiel</h2>
-        <p class="text-white/70 mt-2">Cette étude de cas est protégée. Entre ton code d'accès, ou demande-le-moi : je te réponds rapidement.</p>
+    <!-- CONTENU -->
+    <div id="pif-content">
+<!-- Contenu confidentiel de l'étude de cas PIF.
+     Ce fichier n'est JAMAIS publié tel quel : build.mjs le chiffre (AES-GCM)
+     et les images img/* sont intégrées dans le bloc chiffré. -->
 
-        <div class="pif-tabs" role="tablist">
-          <button type="button" class="pif-tab" role="tab" id="tab-code" aria-controls="panel-code" aria-selected="true">J'ai un code</button>
-          <button type="button" class="pif-tab" role="tab" id="tab-ask" aria-controls="panel-ask" aria-selected="false">Demander l'accès</button>
-        </div>
+<!-- CONTEXTE -->
+<section class="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-12 gap-12">
+  <div class="lg:col-span-8">
+    <h2 class="text-4xl font-black mb-6 text-white">La naissance de Pif</h2>
+    <p class="text-white/70 mb-4">
+      L'idée est née d'une discussion avec <strong class="text-white">Elodie</strong>, ma co-fondatrice.
+      Sommelière et passionnée de vin, elle a toujours été la référence de ses équipes :
+      au fil de ses expériences, ses collègues venaient sans cesse lui poser des questions sur tel ou tel vin.
+    </p>
+    <p class="text-white/70 mb-4">
+      Elle a alors fait un constat : les informations sur le vin sont <strong class="text-white">éparpillées</strong>.
+      Même pour elle, une simple recherche voulait dire une vingtaine d'onglets ouverts dans son navigateur.
+      Et pour garder une trace de ses dégustations, elle se contentait de l'application Notes de son téléphone.
+    </p>
+    <p class="text-white/70 mb-4">
+      En regardant ce qui existait, nous avons remarqué que des solutions existaient déjà, mais en morceaux :
+      il fallait télécharger <strong class="text-white">au moins trois applications</strong> pour apprendre,
+      explorer et noter ses vins.
+    </p>
+    <p class="text-white/70">
+      <strong class="text-white">Pif</strong> réunit tout au même endroit : une application ludique pour apprendre,
+      un <strong class="text-white">globe interactif</strong> pour explorer les régions viticoles, et un
+      <strong class="text-white">carnet de dégustation</strong> pour noter ce qu'on goûte.
+    </p>
+  </div>
 
-        <!-- Panneau : saisir le code -->
-        <form id="panel-code" role="tabpanel" aria-labelledby="tab-code" autocomplete="off">
-          <label class="pif-field">
-            <span>Code d'accès</span>
-            <input id="pif-code" class="pif-input" type="password" required autocomplete="off" spellcheck="false" placeholder="••••••••">
-          </label>
-          <button type="submit" class="pif-btn" id="pif-unlock">Déverrouiller</button>
-          <p class="pif-msg" id="pif-code-msg" role="status" aria-live="polite"></p>
-        </form>
+  <div class="lg:col-span-4 bg-white/5 p-6 rounded-3xl border border-[#A0D585]" style="height: max-content;">
+    <ul class="space-y-3 text-white/70">
+      <li><strong>Rôle :</strong> Co-fondatrice &amp; Product Designer</li>
+      <li><strong>Équipe :</strong> Elodie Wester (co-fondatrice) &amp; Ines Ghannouchi</li>
+      <li><strong>Livrables :</strong> Recherche, identité visuelle, design system, UI mobile</li>
+      <li><strong>Outils :</strong> Figma, React Native (Expo)</li>
+      <li><strong>Année :</strong> 2026</li>
+    </ul>
+  </div>
+</section>
 
-        <!-- Panneau : demander l'accès (envoie un email à Ines via FormSubmit) -->
-        <form id="panel-ask" role="tabpanel" aria-labelledby="tab-ask" hidden>
-          <label class="pif-field">
-            <span>Nom et prénom</span>
-            <input name="nom" class="pif-input" type="text" required autocomplete="name">
-          </label>
-          <label class="pif-field">
-            <span>Email</span>
-            <input name="email" class="pif-input" type="email" required autocomplete="email">
-          </label>
-          <label class="pif-field">
-            <span>Entreprise / poste</span>
-            <input name="entreprise" class="pif-input" type="text" autocomplete="organization">
-          </label>
-          <label class="pif-field">
-            <span>Message (facultatif)</span>
-            <textarea name="message" class="pif-input" rows="3"></textarea>
-          </label>
-          <input type="text" name="_honey" class="pif-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <button type="submit" class="pif-btn" id="pif-ask-btn">Envoyer la demande</button>
-          <p class="pif-msg" id="pif-ask-msg" role="status" aria-live="polite"></p>
-        </form>
+<!-- PROCESS -->
+<section class="bg-white/5 py-20">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-4xl font-black mb-12 text-white">Process</h2>
+    <div class="grid md:grid-cols-4 gap-6">
+      <div class="p-6 bg-white/5 rounded-3xl text-white/70 border border-[#A0D585]">
+        <h3 class="font-bold mb-2">Recherche</h3>
+        <p class="text-sm text-white/50">Marché, cibles et outils existants</p>
       </div>
-    </section>
+      <div class="p-6 bg-white/5 rounded-3xl text-white/70 border border-[#A0D585]">
+        <h3 class="font-bold mb-2">Identité</h3>
+        <p class="text-sm text-white/50">Logo, couleurs, typographie, ton de voix</p>
+      </div>
+      <div class="p-6 bg-white/5 rounded-3xl text-white/70 border border-[#A0D585]">
+        <h3 class="font-bold mb-2">Design system</h3>
+        <p class="text-sm text-white/50">Tokens et bibliothèque de composants</p>
+      </div>
+      <div class="p-6 bg-white/5 rounded-3xl text-white/70 border border-[#A0D585]">
+        <h3 class="font-bold mb-2">UI &amp; prototype</h3>
+        <p class="text-sm text-white/50">Écrans mobiles et app fonctionnelle</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Le contenu déchiffré est injecté ici -->
-    <div id="pif-content" hidden></div>
+<section class="max-w-7xl mx-auto px-6 py-20 text-white">
+
+  <!-- 01 RECHERCHE -->
+  <div class="mb-24">
+    <h2 class="text-3xl font-black text-white mb-10">○ La recherche</h2>
+
+    <div class="bg-white/5 border border-white/10 rounded-[2rem] p-8 md:p-12 mb-12 grid lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-7">
+        <h3 class="text-2xl font-bold mb-6 text-[#A0D585]">Un marché qui doit se réinventer</h3>
+        <p class="text-white/80 leading-relaxed">
+          La consommation de vin recule, révélant un désengagement progressif des consommateurs.
+          Pour toucher les nouvelles générations, il faut renouveler la manière de transmettre la culture du vin :
+          plus moderne, plus engageante, plus digitale.
+        </p>
+      </div>
+      <div class="lg:col-span-5 p-6 bg-white/5 rounded-3xl border border-white/10">
+        <p class="text-4xl font-black text-[#F9C068]">-3,3 %</p>
+        <p class="text-sm text-white/50 mt-2">de consommation mondiale de vin en 2024 (214 M d'hectolitres), le niveau le plus bas depuis 1961. <em>Source : OIV</em></p>
+      </div>
+    </div>
+
+    <!-- Enquête -->
+    <div class="bg-white/5 border border-white/10 rounded-[2rem] p-8 md:p-12 mb-12 grid lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-5">
+        <h3 class="text-2xl font-bold mb-6 text-[#A0D585]">Notre enquête</h3>
+        <p class="text-white/80 leading-relaxed mb-4">
+          Du 19 au 27 juin 2026, nous avons interrogé <strong class="text-white">33 personnes</strong>, sans leur présenter le projet,
+          pour mieux comprendre la cible et ses attentes.
+        </p>
+        <p class="text-white/80 leading-relaxed">
+          Deux segments : <strong class="text-white">21 % de professionnels ou d'étudiants</strong> de la restauration
+          et du commerce du vin, et <strong class="text-white">79 % de non-professionnels</strong>.
+        </p>
+      </div>
+      <div class="lg:col-span-7">
+        <img loading="lazy" src="../assets/images/pif/enquete-age.webp" width="950" height="560" decoding="async" class="w-full rounded-[1.5rem]" alt="Graphique : rapport au vin par catégorie d'âge (18-25, 26-32, 33-40, 40 ans et plus)">
+      </div>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-8 mb-12">
+      <div class="bg-white/5 rounded-[2rem] p-8 border border-white/10">
+        <h4 class="text-2xl font-display font-black text-[#F9C068] mb-2">Les professionnels</h4>
+        <p class="text-sm text-white/50 mb-6">7 répondants</p>
+        <ul class="space-y-3">
+          <li class="flex gap-3 text-white/80"><span class="text-[#A0D585] text-xl leading-none">＋</span> <span><strong class="text-white">100 %</strong> sont prêts à télécharger une app pour se former au vin, pour le comprendre de manière simple et pédagogique.</span></li>
+          <li class="flex gap-3 text-white/80"><span class="text-[#A0D585] text-xl leading-none">＋</span> <span><strong class="text-white">71 %</strong> ont déjà utilisé et payé une application pour se former… mais un seul en a utilisé une dédiée au vin.</span></li>
+          <li class="flex gap-3 text-white/80"><span class="text-red-400 text-xl leading-none">－</span> <span>Malgré leur métier, <strong class="text-white">71 %</strong> se disent seulement moyennement à l'aise pour parler de vin.</span></li>
+          <li class="flex gap-3 text-white/80"><span class="text-red-400 text-xl leading-none">－</span> <span>Ils apprennent surtout hors du digital : caviste, bar à vin, visites de producteurs, livres, proches.</span></li>
+        </ul>
+      </div>
+      <div class="bg-white/5 rounded-[2rem] p-8 border border-white/10">
+        <h4 class="text-2xl font-display font-black text-[#76D2DB] mb-2">Les amateurs</h4>
+        <p class="text-sm text-white/50 mb-6">26 répondants</p>
+        <ul class="space-y-3">
+          <li class="flex gap-3 text-white/80"><span class="text-[#A0D585] text-xl leading-none">＋</span> <span><strong class="text-white">Tous</strong> trouvent le vin intéressant ou passionnant, et <strong class="text-white">50 %</strong> ont un réel intérêt pour l'apprendre.</span></li>
+          <li class="flex gap-3 text-white/80"><span class="text-[#A0D585] text-xl leading-none">＋</span> <span>Moins de <strong class="text-white">8 %</strong> citent le désintérêt comme frein : l'envie est là.</span></li>
+          <li class="flex gap-3 text-white/80"><span class="text-red-400 text-xl leading-none">－</span> <span><strong class="text-white">30 %</strong> en ont une image négative : inaccessible, snob, vieux et poussiéreux.</span></li>
+          <li class="flex gap-3 text-white/80"><span class="text-[#A0D585] text-xl leading-none">＋</span> <span>On le boit partout : <strong class="text-white">89 %</strong> au restaurant, au bar ou chez soi, 39 % en dégustation, 31 % dans les salons.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Freins -->
+    <div class="bg-white/5 border border-white/10 rounded-[2rem] p-8 md:p-12 grid lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-7">
+        <img loading="lazy" src="../assets/images/pif/enquete-freins.webp" width="950" height="534" decoding="async" class="w-full rounded-[1.5rem]" alt="Graphique : freins à l'apprentissage du vin chez les professionnels et les non-professionnels">
+      </div>
+      <div class="lg:col-span-5">
+        <h3 class="text-2xl font-bold mb-6 text-[#FE9EC7]">Ce qui freine vraiment</h3>
+        <p class="text-white/80 leading-relaxed mb-4">
+          Le premier frein, pour tous : <strong class="text-white">ne pas savoir par où commencer</strong>.
+          Viennent ensuite le vocabulaire complexe (surtout chez les amateurs), le manque de temps,
+          et des informations éparpillées (surtout chez les professionnels).
+        </p>
+        <p class="text-white/80 leading-relaxed">
+          L'intérêt existe : il suffit de lever ces freins. C'est là que Pif intervient.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 SOLUTION -->
+  <div class="mb-24">
+    <h2 class="text-3xl font-black text-white mb-10">○ La solution</h2>
+    <p class="text-white/80 leading-relaxed mb-8">
+      Une app mobile qui s'inspire du digital learning : des parcours courts et progressifs, des contenus interactifs,
+      et un système de mémorisation pour retenir sur le long terme.
+    </p>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="p-6 bg-white/5 rounded-[2rem] border border-[#A0D585]">
+        <h4 class="pif-icon-title font-bold text-white mb-3"><svg class="pif-icon" viewBox="0 0 24 25" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4.99998 8.33296C4.99998 6.68478 5.46917 5.07362 6.34822 3.70321C7.22727 2.3328 8.4767 1.26469 9.93851 0.633961C11.4003 0.00323111 13.0089 -0.161797 14.5607 0.159747C16.1125 0.48129 17.538 1.27496 18.6568 2.4404C19.7757 3.60584 20.5376 5.0907 20.8463 6.7072C21.1549 8.32371 20.9965 9.99927 20.391 11.522C19.7855 13.0447 18.7601 14.3462 17.4445 15.2619C16.1289 16.1775 14.5822 16.6663 13 16.6663C10.879 16.6638 8.84553 15.785 7.34575 14.2228C5.84598 12.6605 5.00236 10.5423 4.99998 8.33296V8.33296ZM22.646 13.9402C22.4272 13.7842 22.1578 13.725 21.8971 13.7758C21.6365 13.8266 21.4058 13.9832 21.256 14.2111C20.4931 15.3718 19.5123 16.3596 18.373 17.1148C17.2336 17.87 15.9592 18.3769 14.6266 18.6051C13.294 18.8333 11.9308 18.7779 10.6193 18.4424C9.30785 18.1068 8.07519 17.4981 6.99572 16.6528C5.91624 15.8075 5.01231 14.7432 4.33846 13.5241C3.6646 12.305 3.23478 10.9563 3.07491 9.55947C2.91505 8.16262 3.02846 6.74651 3.40829 5.39656C3.78813 4.04661 4.42653 2.79078 5.28498 1.70483C5.45392 1.49183 5.53471 1.21764 5.50958 0.94259C5.48445 0.667537 5.35546 0.414148 5.15098 0.238166C4.9465 0.0621836 4.68328 -0.0219761 4.41923 0.00420088C4.15517 0.0303778 3.91192 0.164747 3.74298 0.377749C2.34914 2.13744 1.44445 4.26109 1.12704 6.51835C0.809624 8.77562 1.0916 11.0803 1.94238 13.1825C2.79316 15.2847 4.18027 17.1041 5.95326 18.4434C7.72624 19.7826 9.81742 20.5907 12 20.7798V22.9163H7.99998C7.73476 22.9163 7.48041 23.026 7.29287 23.2214C7.10534 23.4167 6.99998 23.6817 6.99998 23.958C6.99998 24.2342 7.10534 24.4992 7.29287 24.6945C7.48041 24.8899 7.73476 24.9996 7.99998 24.9996H18C18.2652 24.9996 18.5195 24.8899 18.7071 24.6945C18.8946 24.4992 19 24.2342 19 23.958C19 23.6817 18.8946 23.4167 18.7071 23.2214C18.5195 23.026 18.2652 22.9163 18 22.9163H14V20.7694C15.7751 20.6177 17.4955 20.0561 19.0362 19.1253C20.5768 18.1945 21.8991 16.9178 22.907 15.3882C22.9811 15.2752 23.0332 15.1482 23.0602 15.0143C23.0872 14.8805 23.0886 14.7423 23.0644 14.6079C23.0401 14.4734 22.9907 14.3453 22.9189 14.2307C22.8471 14.1162 22.7544 14.0175 22.646 13.9402V13.9402Z"/></svg><span>Explorer</span></h4>
+        <p class="text-sm text-white/50">Deux cartes interactives. La carte des régions viticoles, pour découvrir chaque région, sa production, ses cépages et ses sous-régions. Et la carte des domaines, pour voir où se trouvent les différents domaines.</p>
+      </div>
+      <div class="p-6 bg-white/5 rounded-[2rem] border border-[#A0D585]">
+        <h4 class="pif-icon-title font-bold text-white mb-3"><svg class="pif-icon" viewBox="0 0 24 23" aria-hidden="true" focusable="false"><path fill="currentColor" d="M22.0568 5.01178L14.6828 1.64515C13.0596 0.715987 11.0393 0.699501 9.39982 1.60203L1.94285 5.01178C1.91486 5.02521 1.88585 5.03958 1.85885 5.0549C0.0892236 6.02458 -0.52512 8.18546 0.486724 9.88135C0.829708 10.4563 1.33422 10.9273 1.94285 11.241L3.99986 12.1801V16.876C4.00108 18.9757 5.42679 20.8308 7.51886 21.4549C8.97476 21.8585 10.4844 22.0561 11.9999 22.0414C13.5152 22.0576 15.0248 21.8617 16.4809 21.4597C18.573 20.8357 19.9987 18.9805 19.9999 16.8808V12.1782L21.9999 11.262V19.1663C21.9999 19.6956 22.4476 20.1247 22.9999 20.1247C23.5522 20.1247 23.9999 19.6956 23.9999 19.1663V7.66634C24.0065 6.54101 23.0793 5.50142 22.0568 5.01178ZM17.9998 16.8808C18.0003 18.1367 17.15 19.2477 15.8998 19.6245C14.6321 19.9716 13.3183 20.1401 11.9998 20.1247C10.6814 20.1401 9.36761 19.9716 8.09983 19.6245C6.84963 19.2477 5.99932 18.1367 5.99983 16.8808V13.0934L9.31685 14.6076C10.1353 15.0734 11.07 15.3181 12.0219 15.3158C12.9279 15.322 13.8186 15.0921 14.5989 14.6508L17.9998 13.0934V16.8808ZM21.1998 9.51115L13.6578 12.9612C12.6063 13.548 11.3028 13.5313 10.2678 12.918L2.88883 9.55428C2.06632 9.12923 1.7591 8.14566 2.20263 7.35746C2.35263 7.0909 2.57754 6.86993 2.85185 6.71953L10.3468 3.28871C11.3988 2.7032 12.7015 2.71977 13.7368 3.33183L21.1108 6.69846C21.6531 6.98704 21.9924 7.53198 21.9998 8.12639C22.0008 8.68944 21.6983 9.21305 21.1998 9.51115Z"/></svg><span>Apprendre</span></h4>
+        <p class="text-sm text-white/50">Des cours courts, des quiz et des flashcards, avec une progression visible pour donner envie de continuer.</p>
+      </div>
+      <div class="p-6 bg-white/5 rounded-[2rem] border border-[#A0D585]">
+        <h4 class="pif-icon-title font-bold text-white mb-3"><svg class="pif-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M19 3.022C19 3.014 19 3.008 19 3V1C19 0.734784 18.8946 0.48043 18.7071 0.292893C18.5196 0.105357 18.2652 0 18 0C17.7348 0 17.4804 0.105357 17.2929 0.292893C17.1054 0.48043 17 0.734784 17 1V2.1C16.6709 2.03317 16.3358 1.99966 16 2H15V1C15 0.734784 14.8946 0.48043 14.7071 0.292893C14.5196 0.105357 14.2652 0 14 0C13.7348 0 13.4804 0.105357 13.2929 0.292893C13.1054 0.48043 13 0.734784 13 1V2H11V1C11 0.734784 10.8946 0.48043 10.7071 0.292893C10.5196 0.105357 10.2652 0 10 0C9.73478 0 9.48043 0.105357 9.29289 0.292893C9.10536 0.48043 9 0.734784 9 1V2H8C7.66415 1.99966 7.32913 2.03317 7 2.1V1C7 0.734784 6.89464 0.48043 6.70711 0.292893C6.51957 0.105357 6.26522 0 6 0C5.73478 0 5.48043 0.105357 5.29289 0.292893C5.10536 0.48043 5 0.734784 5 1V3V3.022C4.38078 3.48437 3.8777 4.08454 3.53057 4.77498C3.18343 5.46543 3.00178 6.2272 3 7V19C3.00159 20.3256 3.52888 21.5964 4.46622 22.5338C5.40356 23.4711 6.67441 23.9984 8 24H16C17.3256 23.9984 18.5964 23.4711 19.5338 22.5338C20.4711 21.5964 20.9984 20.3256 21 19V7C20.9982 6.2272 20.8166 5.46543 20.4694 4.77498C20.1223 4.08454 19.6192 3.48437 19 3.022V3.022ZM19 19C19 19.7956 18.6839 20.5587 18.1213 21.1213C17.5587 21.6839 16.7956 22 16 22H8C7.20435 22 6.44129 21.6839 5.87868 21.1213C5.31607 20.5587 5 19.7956 5 19V7C5 6.20435 5.31607 5.44129 5.87868 4.87868C6.44129 4.31607 7.20435 4 8 4H16C16.7956 4 17.5587 4.31607 18.1213 4.87868C18.6839 5.44129 19 6.20435 19 7V19ZM17 8C17 8.26522 16.8946 8.51957 16.7071 8.70711C16.5196 8.89464 16.2652 9 16 9H8C7.73478 9 7.48043 8.89464 7.29289 8.70711C7.10536 8.51957 7 8.26522 7 8C7 7.73478 7.10536 7.48043 7.29289 7.29289C7.48043 7.10536 7.73478 7 8 7H16C16.2652 7 16.5196 7.10536 16.7071 7.29289C16.8946 7.48043 17 7.73478 17 8ZM17 12C17 12.2652 16.8946 12.5196 16.7071 12.7071C16.5196 12.8946 16.2652 13 16 13H8C7.73478 13 7.48043 12.8946 7.29289 12.7071C7.10536 12.5196 7 12.2652 7 12C7 11.7348 7.10536 11.4804 7.29289 11.2929C7.48043 11.1054 7.73478 11 8 11H16C16.2652 11 16.5196 11.1054 16.7071 11.2929C16.8946 11.4804 17 11.7348 17 12ZM13 16C13 16.2652 12.8946 16.5196 12.7071 16.7071C12.5196 16.8946 12.2652 17 12 17H8C7.73478 17 7.48043 16.8946 7.29289 16.7071C7.10536 16.5196 7 16.2652 7 16C7 15.7348 7.10536 15.4804 7.29289 15.2929C7.48043 15.1054 7.73478 15 8 15H12C12.2652 15 12.5196 15.1054 12.7071 15.2929C12.8946 15.4804 13 15.7348 13 16Z"/></svg><span>Carnet</span></h4>
+        <p class="text-sm text-white/50">Un carnet de dégustation guidé par les sens : l'œil, le nez et la bouche. De quoi se souvenir de ce qu'on a aimé.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 IDENTITÉ VISUELLE -->
+  <div class="mb-24">
+    <h2 class="text-3xl font-black text-white mb-10">○ L'identité visuelle</h2>
+
+    <div class="bg-white/5 border border-white/10 rounded-[2rem] p-8 md:p-12 mb-12">
+     <div class="grid lg:grid-cols-12 gap-12 items-center mb-12">
+      <div class="lg:col-span-5">
+        <h3 class="text-2xl font-bold mb-6 text-[#A0D585]">Un logo qui se sent</h3>
+        <p class="text-white/80 leading-relaxed mb-4">
+          « Pif », c'est le nez en argot. Et le nez, c'est le premier outil du dégustateur.
+          Le « P » du logo réunit deux symboles : <strong class="text-white">le nez</strong>, qui hume le vin,
+          et <strong class="text-white">le verre</strong>, dessiné à l'intérieur de la lettre.
+        </p>
+        <p class="text-white/80 leading-relaxed">
+          Le mot est composé en Super Warming, une typographie ronde et chaleureuse qui casse l'image élitiste du vin.
+        </p>
+      </div>
+      <div class="lg:col-span-7">
+        <img loading="lazy" src="../assets/images/pif/id-logo.webp" width="1600" height="985" decoding="async" class="w-full rounded-[1.5rem]" alt="Logo Pif">
+      </div>
+     </div>
+
+     <div class="grid lg:grid-cols-2 gap-8">
+      <div>
+        <h4 class="text-lg font-bold text-white mb-4">Composition</h4>
+        <img loading="lazy" src="../assets/images/pif/id-logo-composition.webp" width="1600" height="985" decoding="async" class="w-full rounded-[1.5rem]" alt="Composition du logo Pif : le nez et le verre de vin dans la lettre P">
+      </div>
+      <div>
+        <h4 class="text-lg font-bold text-white mb-4">Versions du logo</h4>
+        <img loading="lazy" src="../assets/images/pif/id-logo-versions.webp" width="1600" height="985" decoding="async" class="w-full rounded-[1.5rem]" alt="Versions claire et sombre du logo Pif">
+      </div>
+     </div>
+    </div>
+
+    <div class="bg-white/5 border border-white/10 rounded-[2rem] p-8 md:p-12 grid lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-4">
+        <h3 class="text-2xl font-bold mb-6 text-[#76D2DB]">Une icône reconnaissable</h3>
+        <p class="text-white/80 leading-relaxed">
+          Une version carrée et compacte du « P », pensée pour les petits formats : l'écran d'accueil du téléphone,
+          l'App Store, Google Play, l'onglet du navigateur et les notifications.
+        </p>
+      </div>
+      <div class="lg:col-span-8">
+        <img loading="lazy" src="../assets/images/pif/id-favicone.webp" width="1600" height="985" decoding="async" class="w-full rounded-[1.5rem]" alt="Icône de l'app Pif sur l'écran d'accueil d'un iPhone">
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 DESIGN SYSTEM -->
+  <div class="mb-24">
+    <h2 class="text-3xl font-black text-white mb-10">○ Le design system</h2>
+
+    <p class="text-lg text-white/70 mb-6">Un design system, c'est plus qu'une bibliothèque de composants. C'est un ensemble de règles qui permet de concevoir vite, de rester cohérent d'un écran à l'autre et de parler la même langue que le code.</p>
+    <p class="text-lg text-white/70 mb-12">Pour construire celui de Pif, j'ai suivi les principes de l'Atomic Design : d'abord les fondations (couleurs, typographie, espacements), puis les composants qui les assemblent, et enfin les écrans.</p>
+
+    <div class="bg-white/5 border border-white/10 rounded-[2rem] p-8 md:p-12">
+      <p class="text-sm font-bold uppercase tracking-widest text-[#FE9EC7] mb-8">Atomes</p>
+
+      <h4 class="text-lg font-bold text-white mb-3">Couleurs</h4>
+      <p class="text-white/70 mb-4">La couleur principale est le violet profond de la marque, accompagné d'un framboise en couleur secondaire. Pour la carte, j'ai ajouté un bordeaux pour les régions viticoles et un bleu clair pour l'eau. Viennent ensuite les couleurs de feedback (succès, alerte, erreur), comme dans toute interface.</p>
+      <p class="text-white/70 mb-6">Les couleurs sont organisées en deux niveaux. Les primitives contiennent la palette brute. Les tokens sémantiques les nomment selon leur rôle (fond, texte, bordure, icône) : on choisit « text/primary » plutôt qu'un code hexadécimal, et une primitive modifiée se répercute partout.</p>
+      <img loading="lazy" src="../assets/images/pif/couleurs.webp" width="1600" height="1500" decoding="async" class="w-full rounded-[1.5rem] mb-12" alt="Couleurs sémantiques du design system Pif">
+
+      <div class="grid lg:grid-cols-2 gap-8 mb-16">
+        <div>
+          <h4 class="text-lg font-bold text-white mb-3">Typographie</h4>
+          <p class="text-white/70 mb-6">Pour créer une hiérarchie claire sur chaque écran, j'ai défini une échelle typographique en Inter, une police très lisible sur mobile, des grands titres (48 px) jusqu'aux étiquettes (12 px).</p>
+          <img loading="lazy" src="../assets/images/pif/typo.webp" width="1600" height="1092" decoding="async" class="w-full rounded-[1.5rem]" alt="Échelle typographique Inter">
+        </div>
+        <div>
+          <h4 class="text-lg font-bold text-white mb-3">Espacements, rayons et effets</h4>
+          <p class="text-white/70 mb-6">Marges, rayons d'angle et ombres suivent une échelle commune. Chaque valeur est une variable, ce qui garde les écrans réguliers et facilite le passage au code.</p>
+          <img loading="lazy" src="../assets/images/pif/espacements.webp" width="1600" height="849" decoding="async" class="w-full rounded-[1.5rem]" alt="Espacements, rayons et effets">
+        </div>
+      </div>
+
+      <p class="text-sm font-bold uppercase tracking-widest text-[#FE9EC7] mb-8">Molécules</p>
+
+      <h4 class="text-lg font-bold text-white mb-3">Composants</h4>
+      <p class="text-white/70 mb-6">Une fois les fondations posées, j'ai assemblé les composants de l'app : barre de navigation, switch, boutons, toggle, recherche et tags. Pour repérer les plus utiles, je suis partie des écrans et j'en ai déduit les éléments qui revenaient. Chaque composant est nommé par catégorie (Catégorie/Nom), pour être retrouvé facilement dans Figma comme dans le code.</p>
+      <img loading="lazy" src="../assets/images/pif/composants.webp" width="1574" height="1790" decoding="async" class="w-full rounded-[1.5rem]" alt="Bibliothèque de composants Pif">
+    </div>
+  </div>
+
+  <!-- 05 MOCKUPS -->
+  <div class="mb-24">
+    <h2 class="text-3xl font-black text-white mb-10">○ Les écrans</h2>
+    <div class="bg-white/5 border border-white/10 rounded-[2rem] p-6 md:p-10">
+      <div class="pif-screens">
+        <figure><img loading="lazy" src="../assets/images/pif/ecran-globe.webp" width="437" height="899" decoding="async" alt="Écran Explorer : le globe interactif"><figcaption>Le globe</figcaption></figure>
+        <figure><img loading="lazy" src="../assets/images/pif/ecran-carte.webp" width="438" height="900" decoding="async" alt="Écran Explorer : la carte des régions viticoles"><figcaption>La carte des régions</figcaption></figure>
+        <figure><img loading="lazy" src="../assets/images/pif/ecran-region.webp" width="438" height="900" decoding="async" alt="Fiche région Bordeaux : cépages et sous-régions"><figcaption>La fiche région</figcaption></figure>
+        <figure><img loading="lazy" src="../assets/images/pif/ecran-apprendre.webp" width="438" height="901" decoding="async" alt="Écran Apprendre : cours et quiz"><figcaption>Apprendre</figcaption></figure>
+        <figure><img loading="lazy" src="../assets/images/pif/ecran-carnet.webp" width="440" height="905" decoding="async" alt="Écran Carnet : notes de dégustation et roue des arômes"><figcaption>Le carnet</figcaption></figure>
+      </div>
+    </div>
+  </div>
+
+  <!-- 06 DÉVELOPPEMENT -->
+  <div class="mb-24">
+    <h2 class="text-3xl font-black text-white mb-10">○ Le développement</h2>
+
+    <div class="bg-white/5 rounded-[2rem] p-8 md:p-12 border border-white/10">
+      <div class="space-y-10">
+      <div>
+        <h4 class="text-2xl font-display font-black text-[#FE9EC7] mb-4">Une carte trop lourde</h4>
+        <p class="text-white/80 leading-relaxed mb-4">
+          Ma première version de la carte était un grand SVG cliquable, où chaque région était un tracé dessiné à la main.
+          En développant l'app, j'ai compris que cette approche la rendait <strong class="text-white">très lourde</strong>.
+          Les tracés détaillés devaient être chargés et redessinés à chaque zoom, et la carte restait figée, impossible à faire évoluer.
+        </p>
+        <p class="text-white/80 leading-relaxed">
+          Après une recherche sur le fonctionnement des cartes, j'ai appris qu'il fallait plutôt décrire les régions
+          par leurs <strong class="text-white">coordonnées géographiques</strong> et les afficher sur une vraie carte intégrée.
+          La carte est devenue plus légère et plus précise, et chaque région n'est plus qu'une simple donnée stockée en base.
+        </p>
+      </div>
+      <div>
+        <h4 class="text-2xl font-display font-black text-[#76D2DB] mb-4">Map Regions Maker</h4>
+        <p class="text-white/80 leading-relaxed mb-4">
+          Il restait un problème, celui de produire ces données pour chaque région. Moi, je voulais simplement dessiner
+          une région sur une carte, comme on trace un contour avec l'outil plume (pour celles et ceux qui connaissent).
+          J'avais besoin d'un outil qui me facilite ce passage du tracé à la donnée, en convertissant mes tracés SVG
+          en <strong class="text-white">GeoJSON</strong> ou en traçant une région directement sur la carte pour l'exporter.
+        </p>
+        <p class="text-white/80 leading-relaxed mb-4">
+          Alors je l'ai créé. Avec Map Regions Maker, j'importe une forme SVG ou je trace la zone sur la carte,
+          je lui donne un nom et une couleur, puis j'exporte le tout en GeoJSON, prêt à rejoindre la base de données de l'app.
+        </p>
+        <p class="text-white/80 leading-relaxed mb-6">
+          Aujourd'hui, l'outil est publié <strong class="text-white">gratuitement</strong>, en <strong class="text-white">open source</strong>, et chacun peut s'en servir.
+          Son interface est en cours d'amélioration.
+        </p>
+        <a href="https://noushy0.github.io/Map-regions-maker/" target="_blank" rel="noopener noreferrer" class="pif-hover inline-block bg-[#76D2DB] text-black px-6 py-3 rounded-full font-bold">Essayer l'outil</a>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 07 AMBITION -->
+  <div class="mb-12">
+    <h2 class="text-3xl font-black text-white mb-10">○ La suite</h2>
+    <p class="text-white/80 leading-relaxed">
+      L'ambition : devenir la plateforme de référence de l'éducation au vin. Ensuite, élargir le contenu à d'autres univers
+      comme le saké, les cidres, les spiritueux du monde et les boissons sans alcool, et développer un écosystème de marque
+      avec des produits dérivés, comme des cartes et des coffrets de dégustation.
+    </p>
+  </div>
+</section>
+
+    </div>
 
     <!-- CTA -->
     <section class="py-10 text-center">
@@ -222,140 +461,5 @@
   <!-- GLOBAL SCRIPT (CRUCIAL) -->
   <script src="../script.js"></script>
 
-  <!-- PIF : le contenu chiffré (pif-content.bin, AES-GCM + gzip) n'est téléchargé qu'au premier essai de code,
-       une seule fois : un visiteur sans code ne charge que cette page. Généré par build.mjs. -->
-  <script>
-  (function () {
-    var REQUEST_ENDPOINT = 'https://formsubmit.co/ajax/inesghannouchi001@gmail.com';
-    var ITERATIONS = 310000;
-    var gate = document.getElementById('pif-gate');
-    var content = document.getElementById('pif-content');
-    var payload = null;
-
-    function normalize(code) { return code.trim().toUpperCase(); }
-
-    function loadPayload() {
-      if (!payload) {
-        payload = fetch('pif-content.bin').then(function (r) {
-          if (!r.ok) throw new Error('payload ' + r.status);
-          return r.arrayBuffer();
-        }).catch(function (e) { payload = null; throw e; });
-      }
-      return payload;
-    }
-
-    async function decrypt(code) {
-      var buf = new Uint8Array(await loadPayload());
-      var enc = new TextEncoder();
-      var baseKey = await crypto.subtle.importKey('raw', enc.encode(normalize(code)), 'PBKDF2', false, ['deriveKey']);
-      var key = await crypto.subtle.deriveKey(
-        { name: 'PBKDF2', salt: buf.subarray(0, 16), iterations: ITERATIONS, hash: 'SHA-256' },
-        baseKey, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
-      var gz = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: buf.subarray(16, 28) }, key, buf.subarray(28));
-      var stream = new Blob([gz]).stream().pipeThrough(new DecompressionStream('gzip'));
-      return await new Response(stream).text();
-    }
-
-    function remember(code) { try { sessionStorage.setItem('pif-code', code); } catch (e) {} }
-    function recall() { try { return sessionStorage.getItem('pif-code'); } catch (e) { return null; } }
-
-    async function unlock(code, silent) {
-      try {
-        var html = await decrypt(code);
-        content.innerHTML = html;
-        content.hidden = false;
-        gate.hidden = true;
-        remember(code);
-        if (!silent && window.trackEvent) window.trackEvent('pif · code correct');
-        return true;
-      } catch (e) {
-        if (!silent) {
-          if (window.trackEvent) window.trackEvent(e && e.name === 'OperationError' ? 'pif · code incorrect' : 'pif · erreur de chargement');
-          var msg = document.getElementById('pif-code-msg');
-          // AES-GCM rejette un mauvais code par une OperationError ; le reste vient du réseau.
-          msg.textContent = e && e.name === 'OperationError'
-            ? 'Code incorrect. Vérifie-le ou demande l\'accès.'
-            : 'Impossible de charger le projet. Vérifie ta connexion et réessaie.';
-          msg.className = 'pif-msg err';
-        }
-        return false;
-      }
-    }
-
-    // Onglets
-    var tabs = { code: document.getElementById('tab-code'), ask: document.getElementById('tab-ask') };
-    var panels = { code: document.getElementById('panel-code'), ask: document.getElementById('panel-ask') };
-    function show(which) {
-      Object.keys(tabs).forEach(function (k) {
-        tabs[k].setAttribute('aria-selected', String(k === which));
-        panels[k].hidden = k !== which;
-      });
-    }
-    tabs.code.addEventListener('click', function () { show('code'); });
-    tabs.ask.addEventListener('click', function () { show('ask'); });
-
-    // Saisie du code
-    panels.code.addEventListener('submit', async function (e) {
-      e.preventDefault();
-      var btn = document.getElementById('pif-unlock');
-      var msg = document.getElementById('pif-code-msg');
-      msg.className = 'pif-msg';
-      msg.textContent = 'Vérification…';
-      btn.disabled = true;
-      await unlock(document.getElementById('pif-code').value, false);
-      btn.disabled = false;
-    });
-
-    // Demande d'accès → email à Ines
-    panels.ask.addEventListener('submit', async function (e) {
-      e.preventDefault();
-      var form = panels.ask;
-      var msg = document.getElementById('pif-ask-msg');
-      var btn = document.getElementById('pif-ask-btn');
-      if (form._honey.value) return;
-      var nom = form.nom.value.trim();
-      btn.disabled = true;
-      msg.className = 'pif-msg';
-      msg.textContent = 'Envoi en cours…';
-      try {
-        var res = await fetch(REQUEST_ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({
-            _subject: 'PIF : ' + nom + ' demande l\'autorisation de voir le projet',
-            _template: 'table',
-            _replyto: form.email.value.trim(),
-            'Nom': nom,
-            'Email': form.email.value.trim(),
-            'Entreprise / poste': form.entreprise.value.trim() || 'non renseigné',
-            'Message': form.message.value.trim() || 'aucun',
-            'Projet': 'PIF (portfolio)'
-          })
-        });
-        var data = await res.json().catch(function () { return {}; });
-        if (!res.ok || String(data.success) === 'false') throw new Error(data.message || res.status);
-        form.reset();
-        if (window.trackEvent) window.trackEvent('pif · demande d\'accès envoyée');
-        msg.className = 'pif-msg ok';
-        msg.textContent = 'Merci ' + nom + ' ! Ta demande est envoyée, je te réponds par email avec le code.';
-      } catch (err) {
-        if (window.trackEvent) window.trackEvent('pif · demande d\'accès en échec');
-        msg.className = 'pif-msg err';
-        msg.textContent = 'L\'envoi n\'a pas fonctionné. Écris-moi directement à inesghannouchi001@gmail.com.';
-      }
-      btn.disabled = false;
-    });
-
-    // Lien direct « …/pif.html#code=XXXX » (le fragment n'est jamais envoyé au serveur),
-    // sinon code déjà saisi pendant cette session.
-    var fromHash = (location.hash.match(/code=([^&]+)/) || [])[1];
-    if (fromHash) {
-      history.replaceState(null, '', location.pathname + location.search);
-      unlock(decodeURIComponent(fromHash), false);
-    } else if (recall()) {
-      unlock(recall(), true);
-    }
-  })();
-  </script>
 </body>
 </html>
